@@ -1,0 +1,19 @@
+{
+  "name": "TestBot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord-prefix": "^2.0.0",
+    "discord-slash-commands-client": "^1.1.1",
+    "discord.js": "^12.5.1",
+    "express": "^4.17.1",
+    "better-sqlite3": "^7.1.2"
+  }
+}
