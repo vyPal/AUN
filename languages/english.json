@@ -21,5 +21,34 @@
   "help_optional": "optional",
   "help_help": "helps you :D",
   "help_ban": "bans a user",
-  "help_unban": "unbans a user"
+  "help_unban": "unbans a user",
+  "help_kick": "kicks a user",
+  "help_setprefix": "sets a new server prefix",
+  "help_language": "sets the server language",
+
+  "kick_title": "User was kicked",
+  "kick_error": "Error",
+  "kick_no_mention": "You did not mention a user",
+  "kick_cant_kick": "This user can't be kicked",
+  "kick_kicked_part1": "User ",
+  "kick_kicked_part2": " was kicked from this server",
+
+  "language_title": "Server language changed",
+  "language_error": "Error",
+  "language_not_changed": "The language was not changed",
+  "language_not_mentioned": "You did not provide a language to set (Available: en, cz)",
+  "language_changed": "The server language was changed to ",
+
+  "setprefix_title": "Server prefix changed",
+  "setprefix_error": "Error",
+  "setprefix_not_changed": "The prefix was not changed",
+  "setprefix_not_mentioned": "You did not provide a prefix to set",
+  "setprefix_changed": "The server prefix was changed to ",
+
+  "unban_title": "User unbanned",
+  "unban_error": "Error",
+  "unban_noone": "Nobody was unbanned",
+  "unban_not_mentioned": "You did not mention a user to unban",
+  "unban_unbanned_part1": "User ",
+  "unabn_unbanned_part2": " was unbanned from this server"
 }

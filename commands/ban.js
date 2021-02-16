@@ -4,6 +4,7 @@ const lang = require('../language_manager');
 const settings = require('discord-server-settings');
 
 module.exports = (message, client) => {
+  if (!message.member.permissions.has("BAN_MEMBERS")) return;
   let prefix = dp.getPrefix();
   if(dp.getPrefix(message.guild.id)){
     prefix = dp.getPrefix(message.guild.id);

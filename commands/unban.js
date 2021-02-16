@@ -1,7 +1,11 @@
 const Discord = require("discord.js");
 const dp = require('discord-prefix');
+const lang = require('../language_manager');
+const settings = require('discord-server-settings');
 
 module.exports = (message, client) => {
+  if (!message.member.permissions.has("BAN_MEMBERS")) return;
+  var langchar = settings.getSetting('lang', message.guild.id)
   let prefix = dp.getPrefix();
   if(dp.getPrefix(message.guild.id)){
     prefix = dp.getPrefix(message.guild.id);
@@ -12,19 +16,19 @@ module.exports = (message, client) => {
   const member = args[0]
   const embed1 = new Discord.MessageEmbed()
   .setAuthor('AUN', 'https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI')
-  .setTitle('User was unbanned')
+  .setTitle(lang.get('unban_title', langchar))
   .setColor('#ed3f2c')
-  .setDescription('Nobody was unbanned')
+  .setDescription(lang.get('unban_noone', langchar))
   .setTimestamp()
   .setFooter('Ping: ' + client.ws.ping + ' | '+prefix+command)
   if (!member) {
-    embed1.setTitle('Error')
-      .setDescription('You did not mention a user!')
+    embed1.setTitle(lang.get('unban_error', langchar))
+      .setDescription(lang.get('unban_not_mentioned', langchar))
       .setColor('#bd1300')
       noerror = false
   }
     if(noerror){
-        embed1.setDescription('User '+member.user.tag+' was unbanned from this server')
+        embed1.setDescription(lang.get('unban_unabnned_part1', langchar)+member.user.tag+lang.get('unban_unabnned_part2', langchar))
     }
     message.channel.send(embed1)
   try{

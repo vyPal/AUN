@@ -14,5 +14,41 @@
 
   "broadcast_title": "Zpráva rozeslána",
   "broadcast_part1": "Zpráva byla odeslána na ",
-  "broadcast_part2": " serverů!"
+  "broadcast_part2": " serverů!",
+
+  "help_title": "AUN nápomocné menu",
+  "help_required": "požadováno",
+  "help_optional": "volitelné",
+  "help_help": "pomůže ti :D",
+  "help_ban": "zabanuje uživatele",
+  "help_unban": "odbanuje uživatele",
+  "help_kick": "vyhodí uživatele",
+  "help_setprefix": "nataví nový prefix pro server",
+  "help_language": "změní jazyk serveru",
+
+  "kick_title": "Uživatel byl vyhozen",
+  "kick_error": "Chyba",
+  "kick_no_mention": "Nezmínil jsi uživatele",
+  "kick_cant_kick": "Tento uživatel nemůže být vyhozen",
+  "kick_kicked_part1": "Uživatel ",
+  "kick_kicked_part2": " byl vyhozen z tohoto serveru",
+
+  "language_title": "Jazyk serveru změněn",
+  "language_error": "Chyba",
+  "language_not_changed": "Jazyk nebyl změněn",
+  "language_not_mentioned": "Nezmínil jsi nový jazyk (Dostupné: en, cz)",
+  "language_changed": "Jazyk server byl změněn na ",
+
+  "setprefix_title": "Prefix serveru změněn",
+  "setprefix_error": "Chyba",
+  "setprefix_not_changed": "Prefix nebyl změněn",
+  "setprefix_not_mentioned": "Nezmínil jsi nový prefix",
+  "setprefix_changed": "Prefix serveru byl změněn na ",
+
+  "unban_title": "Uživatel odbanován",
+  "unban_error": "Chyba",
+  "unban_noone": "Nikdo nebyl odbanován",
+  "unban_not_mentioned": "Nezmínil jsi uživatele na odbanování",
+  "unban_unbanned_part1": "Uživatel ",
+  "unabn_unbanned_part2": " byl odbanován"
 }
