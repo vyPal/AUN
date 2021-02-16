@@ -1,0 +1,18 @@
+{
+  "ban_no_reason": "nezmíněného důvodu",
+  "ban_title": "Uživatel zabanován",
+  "ban_noone_banned": "Nikdo nebyl zabanován",
+  "ban_you_title": "Byl jsi zabanován",
+  "ban_you_part1": "Byl jsi zabanován ze serveru ",
+  "ban_you_part2": ", moderátorem ",
+  "ban_you_part3": ", za ",
+  "ban_error": "Chyba",
+  "ban_no_mention": "Nezmínil jsi uživatele",
+  "ban_cant_ban": "Tento uživatel nemůže být zabanován",
+  "ban_banned_part1": "Uživatel ",
+  "ban_banned_part2": " byl zabanován z tohoto serveru",
+
+  "broadcast_title": "Zpráva rozeslána",
+  "broadcast_part1": "Zpráva byla odeslána na ",
+  "broadcast_part2": " serverů!"
+}

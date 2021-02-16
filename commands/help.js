@@ -1,7 +1,10 @@
 const Discord = require("discord.js");
 const dp = require('discord-prefix');
+const lang = require('../language_manager');
+const settings = require('discord-server-settings');
 
 module.exports = (message, client) => {
+  var langchar = settings.getSetting('lang', message.guild.id)
   let prefix = dp.getPrefix();
   if(dp.getPrefix(message.guild.id)){
     prefix = dp.getPrefix(message.guild.id);
@@ -10,14 +13,14 @@ module.exports = (message, client) => {
   const command = args.shift().toLowerCase();
   const embed1 = new Discord.MessageEmbed()
   .setAuthor('AUN', 'https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI')
-  .setTitle('AUN help menu')
+  .setTitle(lang.get('help_title', langchar))
   .setColor('#0db9f2')
-  .setDescription('<> - required\n() - optional\n\n'+prefix+'help - helps you :D\n'+prefix+'ban <@user> (reason) - bans a user\n'+prefix+'unban <@user> - unbans the user\n'+prefix+'kick <@user> (reason) - kicks the user\n'+prefix+'setprefix <prefix> - sets a new prefix')
+  .setDescription('<> - '+lang.get('help_required', langchar)+'\n() - '+lang.get('help_optional', langchar)+'\n\n'+prefix+'help - '+lang.get('help_help', langchar)+'\n'+prefix+'ban <@user> (reason) - '+lang.get('help_ban', langchar)+'\n'+prefix+'unban <@user> - '+lang.get('help_unban', langchar)+'\n'+prefix+'kick <@user> (reason) - kicks the user\n'+prefix+'setprefix <prefix> - sets a new prefix')
   .setTimestamp()
   .setFooter('Ping: ' + client.ws.ping + 'ms | Page 1')
   const embed2 = new Discord.MessageEmbed()
   .setAuthor('AUN', 'https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI')
-  .setTitle('AUN help menu')
+  .setTitle(lang.get('help_title', langchar))
   .setColor('#0db9f2')
   .setDescription('')
   .setTimestamp()

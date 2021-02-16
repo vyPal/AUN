@@ -1,52 +1,54 @@
-const Discord = require("discord.js")
+const Discord = require("discord.js");
 const dp = require('discord-prefix');
+const lang = require('../language_manager');
+const settings = require('discord-server-settings');
 
 module.exports = (message, client) => {
   let prefix = dp.getPrefix();
   if(dp.getPrefix(message.guild.id)){
     prefix = dp.getPrefix(message.guild.id);
   }
+  var langchar = settings.getSetting('lang', message.guild.id)
   const args = message.content.slice(prefix.length).trim().split(' ');
   const command = args.shift().toLowerCase();
-    var noerror = true
-  const member = args[0]
-  const reason = args[1] || "a reason not specified";
+    var noerror = true;
+  const member = args[0];
+  const reason = args[1] || lang.get('ban_no_reason', langchar);
   const embed1 = new Discord.MessageEmbed()
   .setAuthor('AUN', 'https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI')
-  .setTitle('User was banned')
+  .setTitle(lang.get('ban_title', langchar))
   .setColor('#ed3f2c')
-  .setDescription('Nobody was banned')
+  .setDescription(lang.get('ban_noone_banned', langchar))
   .setTimestamp()
-  .setFooter('Ping: ' + client.ws.ping + ' | '+prefix+command)
-  message.channel.send(member);
+  .setFooter('Ping: ' + client.ws.ping + ' | '+prefix+command);
   const embed = new Discord.MessageEmbed()
-  .setTitle("You were banned")
+  .setTitle(lang.get('ban_you_title', langchar))
   .setAuthor("AUN", "https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI")
   .setColor(0x00AE86)
-  .setDescription("You were banned from "+message.guild.name+", by "+message.author.name+", for "+reason)
+  .setDescription(lang.get('ban_you_part1', langchar)+message.guild.name+lang.get('ban_you_part2', langchar)+message.author.name+lang.get('ban_you_part3', langchar)+reason)
   .setFooter("Ping: "+client.ws.ping+" | AUN discord bot")
-  .setTimestamp()
-  //client.fetchUser(member).then(user => {user.send(embed)})
+  .setTimestamp();
   if (!member) {
-    embed1.setTitle('Error')
-      .setDescription('You did not mention a user!')
-      .setColor('#bd1300')
-      noerror = false
+    embed1.setTitle(lang.get('ban_error', langchar))
+      .setDescription(lang.get('ban_no_mention', langchar))
+      .setColor('#bd1300');
+      noerror = false;
   }else{
     if (!member.kickable) {
-        embed1.setTitle('Error')
-      .setDescription('This member cannot be banned!')
-      .setColor('#bd1300')
-      noerror = false
+        embed1.setTitle(lang.get('ban_error', langchar))
+      .setDescription(lang.get('ban_cant_ban', langchar))
+      .setColor('#bd1300');
+      noerror = false;
     }
   }
     if(noerror){
-        embed1.setDescription('User '+member.user.tag+' was banned from this server')
+        embed1.setDescription(lang.get('ban_banned_part1', langchar)+member.user.tag+lang.get('ban_banned_part2', langchar));
+        client.fetchUser(member).then(user => {user.send(embed)});
     }
-    message.channel.send(embed1)
+    message.channel.send(embed1);
   try{
-      return member.ban()
+      return member.ban();
   }catch{
-      return
+      return;
     }
 }

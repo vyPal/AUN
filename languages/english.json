@@ -1,3 +1,25 @@
 {
-  
+  "ban_no_reason": "a reason not specified",
+  "ban_title": "User was banned",
+  "ban_noone_banned": "No user was banned",
+  "ban_you_title": "You were banned",
+  "ban_you_part1": "You were banned from ",
+  "ban_you_part2": ", by ",
+  "ban_you_part3": ", for ",
+  "ban_error": "Error",
+  "ban_no_mention": "You did not mention a user",
+  "ban_cant_ban": "This user can't be banned",
+  "ban_banned_part1": "User ",
+  "ban_banned_part2": " was banned from this server",
+
+  "broadcast_title": "Message broadcasted",
+  "broadcast_part1": "Message was sent ",
+  "broadcast_part2": " times!",
+
+  "help_title": "AUN help menu",
+  "help_required": "required",
+  "help_optional": "optional",
+  "help_help": "helps you :D",
+  "help_ban": "bans a user",
+  "help_unban": "unbans a user"
 }
