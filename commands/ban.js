@@ -12,7 +12,7 @@ module.exports = (message, client) => {
   const member = args[0]
   const reason = args[1] || "a reason not specified";
   const embed1 = new Discord.MessageEmbed()
-  .setAuthor('Chill', 'https://drive.google.com/uc?export=view&id=1-RqwxYN7Bw4Xkt0oE6UwiHp1mSacbQWL')
+  .setAuthor('AUN', 'https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI')
   .setTitle('User was banned')
   .setColor('#ed3f2c')
   .setDescription('Nobody was banned')
@@ -21,12 +21,12 @@ module.exports = (message, client) => {
   message.channel.send(member);
   const embed = new Discord.MessageEmbed()
   .setTitle("You were banned")
-  .setAuthor("Chill", "https://drive.google.com/uc?export=view&id=1-RqwxYN7Bw4Xkt0oE6UwiHp1mSacbQWL")
+  .setAuthor("AUN", "https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI")
   .setColor(0x00AE86)
   .setDescription("You were banned from "+message.guild.name+", by "+message.author.name+", for "+reason)
-  .setFooter("Ping: "+client.ws.ping+" | Chill discord bot")
+  .setFooter("Ping: "+client.ws.ping+" | AUN discord bot")
   .setTimestamp()
-  client.fetchUser(member).then(user => {user.send(embed)})
+  //client.fetchUser(member).then(user => {user.send(embed)})
   if (!member) {
     embed1.setTitle('Error')
       .setDescription('You did not mention a user!')

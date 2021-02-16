@@ -11,7 +11,7 @@ module.exports = (message, client) => {
     var noerror = true
   const member = args[0]
   const embed1 = new Discord.MessageEmbed()
-  .setAuthor('Chill', 'https://drive.google.com/uc?export=view&id=1-RqwxYN7Bw4Xkt0oE6UwiHp1mSacbQWL')
+  .setAuthor('AUN', 'https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI')
   .setTitle('User was unbanned')
   .setColor('#ed3f2c')
   .setDescription('Nobody was unbanned')

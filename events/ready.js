@@ -1,5 +1,6 @@
-const {default_prefix} = require('../config.json');
+const {default_prefix, default_language} = require('../config/config.json');
 const dp = require('discord-prefix');
+const settings = require('discord-server-settings');
 module.exports = (client) => {
     const users = client.users.cache.size;
     const activities_list = [
@@ -22,4 +23,5 @@ module.exports = (client) => {
       client.user.setActivity(activities_list[index]);
   }, 5000);
   dp.setPrefix(default_prefix);
+  settings.setSetting(default_language, 'lang');
 };
