@@ -13,7 +13,7 @@ module.exports = (message, client) => {
   const args = message.content.slice(prefix.length).trim().split(' ');
   const command = args.shift().toLowerCase();
   var noerror = true
-  const member = args[0]
+  const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
   const embed1 = new Discord.MessageEmbed()
   .setAuthor('AUN', 'https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI')
   .setTitle(lang.get('kick_title', langchar))

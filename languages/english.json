@@ -25,6 +25,9 @@
   "help_kick": "kicks a user",
   "help_setprefix": "sets a new server prefix",
   "help_language": "sets the server language",
+  "help_mute": "mutes a user",
+  "help_unmute": "unmutes a user",
+  "help_info": "shows info about bot and server",
 
   "kick_title": "User was kicked",
   "kick_error": "Error",
@@ -50,5 +53,37 @@
   "unban_noone": "Nobody was unbanned",
   "unban_not_mentioned": "You did not mention a user to unban",
   "unban_unbanned_part1": "User ",
-  "unabn_unbanned_part2": " was unbanned from this server"
+  "unabn_unbanned_part2": " was unbanned from this server",
+
+  "mute_no_reason": "a reason not specified",
+  "mute_title": "User was muted",
+  "mute_noone_muted": "No user was muted",
+  "mute_you_title": "You were muted",
+  "mute_you_part1": "You were muted from ",
+  "mute_you_part2": ", by ",
+  "mute_you_part3": ", for ",
+  "mute_error": "Error",
+  "mute_no_mention": "You did not mention a user",
+  "mute_cant_mute": "This user can't be muted",
+  "mute_muted_part1": "User ",
+  "mute_muted_part2": " was muted on this server",
+
+  "unmute_no_reason": "a reason not specified",
+  "unmute_title": "User was unmuted",
+  "unmute_noone_unmuted": "No user was unmuted",
+  "unmute_you_title": "You were unmuted",
+  "unmute_you_part1": "You were unmuted from ",
+  "unmute_you_part2": ", by ",
+  "unmute_you_part3": ", for ",
+  "unmute_error": "Error",
+  "unmute_no_mention": "You did not mention a user",
+  "unmute_cant_unmute": "This user can't be unmuted",
+  "unmute_unmuted_part1": "User ",
+  "unmute_unmuted_part2": " was unmuted on this server",
+
+  "defaultchannel_title": "Default channel was changed",
+  "defaultchannel_error": "Error",
+  "defaultchannel_not_changed": "Channel was not changed",
+  "defaultchannel_not_mentioned": "You did not mention a valid channel",
+  "defaultchannel_changed": "The default channel was changed to "
 }

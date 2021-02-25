@@ -18,13 +18,17 @@ module.exports = (message, client) => {
   try {
     guildList.forEach(guild => {
       let defaultChannel = "";
-      guild.channels.cache.forEach((channel) => {
-        if(channel.type == "text" && defaultChannel == "") {
-          if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
-            defaultChannel = channel;
+      deafultChannel = settings.getSetting('defaultchannel', message.guild.id);
+      if(defaultChannel == null) {
+        guild.channels.cache.forEach((channel) => {
+          if(channel.type == "text" && defaultChannel == "") {
+            if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
+              defaultChannel = channel;
+              settings.setSetting(channel, 'defaultchannel', message.guild.id)
+            }
           }
-        }
-      });
+        });
+      }
       defaultChannel.send(args.join(' '));
       msgssent += 1;
     });

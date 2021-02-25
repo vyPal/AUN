@@ -1,5 +1,5 @@
 {
-  "ban_no_reason": "nezmíněného důvodu",
+  "ban_no_reason": "nezmíněný důvod",
   "ban_title": "Uživatel zabanován",
   "ban_noone_banned": "Nikdo nebyl zabanován",
   "ban_you_title": "Byl jsi zabanován",
@@ -25,6 +25,9 @@
   "help_kick": "vyhodí uživatele",
   "help_setprefix": "nataví nový prefix pro server",
   "help_language": "změní jazyk serveru",
+  "help_mute": "ztlumí uživatele",
+  "help_unmute": "zruší ztlumení uživatele",
+  "help_info": "zobrazí informace o botovi a serveru",
 
   "kick_title": "Uživatel byl vyhozen",
   "kick_error": "Chyba",
@@ -37,7 +40,7 @@
   "language_error": "Chyba",
   "language_not_changed": "Jazyk nebyl změněn",
   "language_not_mentioned": "Nezmínil jsi nový jazyk (Dostupné: en, cz)",
-  "language_changed": "Jazyk server byl změněn na ",
+  "language_changed": "Jazyk serveru byl změněn na ",
 
   "setprefix_title": "Prefix serveru změněn",
   "setprefix_error": "Chyba",
@@ -50,5 +53,37 @@
   "unban_noone": "Nikdo nebyl odbanován",
   "unban_not_mentioned": "Nezmínil jsi uživatele na odbanování",
   "unban_unbanned_part1": "Uživatel ",
-  "unabn_unbanned_part2": " byl odbanován"
+  "unabn_unbanned_part2": " byl odbanován",
+
+  "mute_no_reason": "nezmíněný důvod",
+  "mute_title": "Uživatel ztlumen",
+  "mute_noone_muted": "Nikdo nebyl ztlumen",
+  "mute_you_title": "Byl jsi ztlumen",
+  "mute_you_part1": "Byl jsi ztlumen na serveru ",
+  "mute_you_part2": ", moderátorem ",
+  "mute_you_part3": ", za ",
+  "mute_error": "Chyba",
+  "mute_no_mention": "Nezmínil jsi uživatele",
+  "mute_cant_mute": "Tento uživatel nemůže být ztlumen",
+  "mute_muted_part1": "Uživatel ",
+  "mute_muted_part2": " byl ztlumen na tomto serveru",
+
+  "unmute_no_reason": "nezmíněný důvod",
+  "unmute_title": "Zrušeno ztlumení",
+  "unmute_noone_unmuted": "Nikomu nebylo zrušeno ztlumení",
+  "unmute_you_title": "Bylo ti odebráno ztlumení",
+  "unmute_you_part1": "Bylo ti odebráno ztlumení na serveru ",
+  "unmute_you_part2": ", uživatelem ",
+  "unmute_you_part3": ", za ",
+  "unmute_error": "Chyba",
+  "unmute_no_mention": "Nezmínil jsi uživatele",
+  "unmute_cant_unmute": "Tomuto uživateli nelze zrušit ztlumení",
+  "unmute_unmuted_part1": "Uživateli ",
+  "unmute_unmuted_part2": " bylo zrušeno ztlumení",
+
+  "defaultchannel_title": "Hlavní kanál změněn",
+  "defaultchannel_error": "Chyba",
+  "defaultchannel_not_changed": "Kanál nebyl změněn",
+  "defaultchannel_not_mentioned": "Nezmínil jsi nový kanál",
+  "defaultchannel_changed": "Hlavní kanál serveru byl změněn na "
 }

@@ -1,3 +1,5 @@
+const settings = require('discord-server-settings');
+
 module.exports = (client, guild) => {
   let defaultChannel = "";
   guild.channels.cache.forEach((channel) => {
@@ -9,4 +11,5 @@ module.exports = (client, guild) => {
   })
   //defaultChannel will be the channel object that the bot first finds permissions for
   defaultChannel.send("```Hello, I'm AUN. You can start using me by typing .help```");
+  settings.setSetting(defaultChannel, 'defaultchannel', message.guild.id);
 }

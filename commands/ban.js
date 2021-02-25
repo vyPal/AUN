@@ -13,8 +13,8 @@ module.exports = (message, client) => {
   const args = message.content.slice(prefix.length).trim().split(' ');
   const command = args.shift().toLowerCase();
     var noerror = true;
-  const member = args[0];
-  const reason = args[1] || lang.get('ban_no_reason', langchar);
+  const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
+  const reason = args.slice(1).join(' ') || lang.get('ban_no_reason', langchar);
   const embed1 = new Discord.MessageEmbed()
   .setAuthor('AUN', 'https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI')
   .setTitle(lang.get('ban_title', langchar))
@@ -26,7 +26,7 @@ module.exports = (message, client) => {
   .setTitle(lang.get('ban_you_title', langchar))
   .setAuthor("AUN", "https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI")
   .setColor(0x00AE86)
-  .setDescription(lang.get('ban_you_part1', langchar)+message.guild.name+lang.get('ban_you_part2', langchar)+message.author.name+lang.get('ban_you_part3', langchar)+reason)
+  .setDescription(lang.get('ban_you_part1', langchar)+message.guild.name+lang.get('ban_you_part2', langchar)+message.author.tag+lang.get('ban_you_part3', langchar)+reason)
   .setFooter("Ping: "+client.ws.ping+" | AUN discord bot")
   .setTimestamp();
   if (!member) {
@@ -44,11 +44,11 @@ module.exports = (message, client) => {
   }
     if(noerror){
         embed1.setDescription(lang.get('ban_banned_part1', langchar)+member.user.tag+lang.get('ban_banned_part2', langchar));
-        client.fetchUser(member).then(user => {user.send(embed)});
     }
     message.channel.send(embed1);
   try{
-      return member.ban();
+    member.user.send(embed);
+    return member.ban({days: 0, reason: `${reason}`});
   }catch{
       return;
     }
