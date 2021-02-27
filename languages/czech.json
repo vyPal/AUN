@@ -28,6 +28,9 @@
   "help_mute": "ztlumí uživatele",
   "help_unmute": "zruší ztlumení uživatele",
   "help_info": "zobrazí informace o botovi a serveru",
+  "help_onlypremium": "pouze prémium",
+  "help_say": "bot řekne tvoji zprávu",
+  "help_meme": "zobrazí náhodný meme z r/meme",
 
   "kick_title": "Uživatel byl vyhozen",
   "kick_error": "Chyba",
@@ -85,5 +88,14 @@
   "defaultchannel_error": "Chyba",
   "defaultchannel_not_changed": "Kanál nebyl změněn",
   "defaultchannel_not_mentioned": "Nezmínil jsi nový kanál",
-  "defaultchannel_changed": "Hlavní kanál serveru byl změněn na "
+  "defaultchannel_changed": "Hlavní kanál serveru byl změněn na ",
+
+  "premium_title": "Stav prémia změněn",
+  "premium_error": "Chyba",
+  "premium_not_changed": "Stav prémia se nezměnil",
+  "premium_not_owner": "Omlouvám se, ale prémium vám může dát pouze majitel. Pozvěte ho: vyPal#7810",
+  "premium_changed": "Premium je ",
+
+  "mt_onlypremium_title": "Pouze pro premium",
+  "mt_onlypremium_text": "Omlouvám se, ale příkaz, který se snažíte spustit je pouze pro prémiové servery. Pozvěte mého majitele vyPal#7810"
 }

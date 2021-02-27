@@ -24,4 +24,5 @@ module.exports = (client) => {
   }, 10000);
   dp.setPrefix(default_prefix);
   settings.setSetting(default_language, 'lang');
+  settings.setSetting('false', 'premium');
 };

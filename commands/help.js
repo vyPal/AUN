@@ -15,7 +15,7 @@ module.exports = (message, client) => {
   .setAuthor('AUN', 'https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI')
   .setTitle(lang.get('help_title', langchar))
   .setColor('#0db9f2')
-  .setDescription('<> - '+lang.get('help_required', langchar)+'\n() - '+lang.get('help_optional', langchar)+'\n\n')
+  .setDescription('<> - '+lang.get('help_required', langchar)+'\n() - '+lang.get('help_optional', langchar)+'\n* - '+lang.get('help_onlypremium', langchar)+'\n\n')
   .addFields(
     { name: 'Info', value: `${prefix}help - ${lang.get('help_help', langchar)}\n${prefix}info - ${lang.get('help_info', langchar)}` },
     { name: 'Moderation', value: `${prefix}ban <@user> (reason) - ${lang.get('help_ban', langchar)}\n${prefix}unban <@user> (reason) - ${lang.get('help_unban', langchar)}\n${prefix}kick <@user> (reason) - ${lang.get('help_kick', langchar)}\n${prefix}mute <@user> (reason) - ${lang.get('help_mute', langchar)}\n${prefix}unmute <@user> (reason) - ${lang.get('help_unmute', langchar)}` },
@@ -26,7 +26,10 @@ module.exports = (message, client) => {
   .setAuthor('AUN', 'https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI')
   .setTitle(lang.get('help_title', langchar))
   .setColor('#0db9f2')
-  .setDescription('')
+  .setDescription('<> - '+lang.get('help_required', langchar)+'\n() - '+lang.get('help_optional', langchar)+'\n* - '+lang.get('help_onlypremium', langchar)+'\n\n')
+  .addFields(
+    {name: 'Fun', value: `${prefix}say <sentance> - ${lang.get('help_say', langchar)} *\n${prefix}meme - ${lang.get('help_meme', langchar)}`},
+  )
   .setTimestamp()
   .setFooter('Ping: ' + client.ws.ping + 'ms | Page 2')
   return message.channel.send({embed: embed1}).then(embedMessage => {
@@ -36,11 +39,13 @@ module.exports = (message, client) => {
           const forwardsFilter = (reaction, user) => reaction.emoji.name === '➡' && user.id === message.author.id;
           const backwards = embedMessage.createReactionCollector(backwardsFilter/*, {timer: 6000}*/);
           const forwards = embedMessage.createReactionCollector(forwardsFilter/*, {timer: 6000}*/);
-          backwards.on('collect', () => {
+          backwards.on('collect', (reaction, user) => {
               embedMessage.edit(embed1)
+              reaction.users.remove(user.id)
           })
-          forwards.on('collect', () => {
+          forwards.on('collect', (reaction, user) => {
               embedMessage.edit(embed2)
+              reaction.users.remove(user.id)
           })
       });
   });

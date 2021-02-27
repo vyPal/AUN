@@ -28,6 +28,9 @@
   "help_mute": "mutes a user",
   "help_unmute": "unmutes a user",
   "help_info": "shows info about bot and server",
+  "help_onlypremium": "premium commands",
+  "help_say": "says your sentence",
+  "help_meme": "shows a random meme from r/meme",
 
   "kick_title": "User was kicked",
   "kick_error": "Error",
@@ -85,5 +88,14 @@
   "defaultchannel_error": "Error",
   "defaultchannel_not_changed": "Channel was not changed",
   "defaultchannel_not_mentioned": "You did not mention a valid channel",
-  "defaultchannel_changed": "The default channel was changed to "
+  "defaultchannel_changed": "The default channel was changed to ",
+
+  "premium_title": "Premium state change",
+  "premium_error": "Error",
+  "premium_not_changed": "Premium state didnt change",
+  "premium_not_owner": "I am sorry, but only the bot owner can do this. Invite him: vyPal#7810",
+  "premium_changed": "Premium was ",
+
+  "mt_onlypremium_title": "Premium only",
+  "mt_onlypremium_text": "I am sorry but this command is available only on premium servers. If you want to get premium, invite my owner: vyPal#7810"
 }

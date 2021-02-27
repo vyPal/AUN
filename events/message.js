@@ -12,6 +12,9 @@ const mute = require("../commands/mute");
 const unmute = require("../commands/unmute");
 const info = require("../commands/info");
 const defaultchannel = require("../commands/defaultchannel");
+const premium = require("../commands/premium");
+const say = require("../commands/say");
+const meme = require("../commands/meme");
 
 module.exports = (client, message) => {
   let prefix = dp.getPrefix();
@@ -46,5 +49,11 @@ module.exports = (client, message) => {
     return info(message, client);
   }else if(message.content.startsWith(prefix+"defaultchannel")){
     return defaultchannel(message, client);
+  }else if(message.content.startsWith(prefix+"premium")){
+    return premium(message, client);
+  }else if(message.content.startsWith(prefix+"say")){
+    return say(message, client);
+  }else if(message.content.startsWith(prefix+"meme")){
+    return meme.execute(client, message);
   }
 }

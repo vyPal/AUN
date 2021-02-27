@@ -18,8 +18,8 @@ module.exports = (message, client) => {
   try {
     guildList.forEach(guild => {
       let defaultChannel = "";
-      deafultChannel = settings.getSetting('defaultchannel', message.guild.id);
-      if(defaultChannel == null) {
+      deafultChannel = client.channels.cache.get(settings.getSetting('defaultchannel', message.guild.id));
+      if(!defaultChannel) {
         guild.channels.cache.forEach((channel) => {
           if(channel.type == "text" && defaultChannel == "") {
             if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
