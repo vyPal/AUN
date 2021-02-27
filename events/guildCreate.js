@@ -11,7 +11,7 @@ module.exports = (client, guild) => {
   })
   //defaultChannel will be the channel object that the bot first finds permissions for
   defaultChannel.send("```Hello, I'm AUN. You can start using me by typing .help```");
-  settings.setSetting(defaultChannel, 'defaultchannel', message.guild.id);
+  settings.setSetting(defaultChannel, 'defaultchannel', guild.id);
   settings.setSetting('en', 'lang', guild.id);
   settings.setSetting(false, 'premium', guild.id);
 }
