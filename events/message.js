@@ -15,6 +15,13 @@ const defaultchannel = require("../commands/defaultchannel");
 const premium = require("../commands/premium");
 const say = require("../commands/say");
 const meme = require("../commands/meme");
+const play = require("../commands/play");
+const repeatloop = require("../commands/repeatloop")
+const skip = require("../commands/skip");
+const stop = require("../commands/stop");
+const queue = require("../commands/queue");
+const filter = require("../commands/filter");
+const volume = require("../commands/volume")
 
 module.exports = (client, message) => {
   let prefix = dp.getPrefix();
@@ -55,5 +62,19 @@ module.exports = (client, message) => {
     return say(message, client);
   }else if(message.content.startsWith(prefix+"meme")){
     return meme.execute(client, message);
+  }else if(message.content.startsWith(prefix+"play")){
+    return play(message, client);
+  }else if(message.content.includes("loop") && message.content.startsWith(prefix)) {
+    repeatloop(message, client);
+  }else if(message.content.startsWith(prefix+"skip")){
+    skip(message, client);
+  }else if(message.content.startsWith(prefix+"stop")){
+    stop(message, client);
+  }else if(message.content.startsWith(prefix+"queue")){
+    queue(message, client);
+  }else if([`3d`, `bassboost`, `echo`, `karaoke`, `nightcore`, `vaporwave`].includes(message.content) && message.content.startsWith(prefix)){
+    filter(message, client);
+  }else if(message.content.startsWith(prefix+"volume")){
+    volume(message, client);
   }
 }
