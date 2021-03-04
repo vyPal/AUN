@@ -10,7 +10,7 @@ app.listen(port, () => console.log(`Example app listening at http://localhost:${
 
 const { ShardingManager } = require('discord.js');
 const manager = new ShardingManager('./bot.js', {
-    totalShards: 2,
+    totalShards: 1,
     token: process.env.DISCORD_TOKEN
 });
 manager.on('shardCreate', (shard) => console.log(`Shard ${shard.id} launched`));

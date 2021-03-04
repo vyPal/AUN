@@ -21,7 +21,8 @@ const skip = require("../commands/skip");
 const stop = require("../commands/stop");
 const queue = require("../commands/queue");
 const filter = require("../commands/filter");
-const volume = require("../commands/volume")
+const volume = require("../commands/volume");
+const codejoke = require("../commands/codejoke");
 
 module.exports = (client, message) => {
   let prefix = dp.getPrefix();
@@ -76,5 +77,7 @@ module.exports = (client, message) => {
     filter(message, client);
   }else if(message.content.startsWith(prefix+"volume")){
     volume(message, client);
+  }else if(message.content.startsWith(prefix+"codejoke")){
+    codejoke.execute(client, message);
   }
 }
