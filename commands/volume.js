@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const dp = require('discord-prefix');
+const DisTube = require('distube');
 
 module.exports = (message, client) => {
   let prefix = dp.getPrefix();

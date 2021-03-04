@@ -22,7 +22,7 @@ const stop = require("../commands/stop");
 const queue = require("../commands/queue");
 const filter = require("../commands/filter");
 const volume = require("../commands/volume");
-const codejoke = require("../commands/codejoke");
+const autoplay = require("../commands/autoplay");
 
 module.exports = (client, message) => {
   let prefix = dp.getPrefix();
@@ -65,7 +65,7 @@ module.exports = (client, message) => {
     return meme.execute(client, message);
   }else if(message.content.startsWith(prefix+"play")){
     return play(message, client);
-  }else if(message.content.includes("loop") && message.content.startsWith(prefix)) {
+  }else if(['repeat', 'loop'].some(v => message.content.includes(v)) && message.content.startsWith(prefix)) {
     repeatloop(message, client);
   }else if(message.content.startsWith(prefix+"skip")){
     skip(message, client);
@@ -73,11 +73,11 @@ module.exports = (client, message) => {
     stop(message, client);
   }else if(message.content.startsWith(prefix+"queue")){
     queue(message, client);
-  }else if([`3d`, `bassboost`, `echo`, `karaoke`, `nightcore`, `vaporwave`].includes(message.content) && message.content.startsWith(prefix)){
+  }else if([`3d`, `bassboost`, `echo`, `karaoke`, `nightcore`, `vaporwave`].some(v => message.content.includes(v)) && message.content.startsWith(prefix)){
     filter(message, client);
   }else if(message.content.startsWith(prefix+"volume")){
     volume(message, client);
-  }else if(message.content.startsWith(prefix+"codejoke")){
-    codejoke.execute(client, message);
+  }else if(message.content.startsWith(prefix+"autoplay")){
+    autoplay(message, client);
   }
 }

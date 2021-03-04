@@ -37,7 +37,7 @@ module.exports = (message, client) => {
         totalSeconds %= 3600;
         let minutes = Math.floor(totalSeconds / 60);
         let seconds = Math.floor(totalSeconds % 60);
-        embed.setDescription("**Bot info**\nBot invite: https://discord.com/oauth2/authorize?client_id=808613132850561055&permissions=8&scope=bot\n Bot servers: "+servers +"\n Bot users: "+users+"\nBot uptime: "+days+"d "+hours+"h "+minutes+"m "+seconds+"s"+"\nI have a support email: aunthebot@gmail.com\n**Server info**\nServer invite: "+invite.url+"\nServer members: "+message.guild.members.cache.size+"\nServer prefix: "+prefix+"\nServer language: "+langchar+"\nPremium server: "+settings.getSetting('premium', message.guild.id))
+        embed.setDescription("**Bot info**\nBot invite: https://discord.com/oauth2/authorize?client_id=808613132850561055&permissions=8&scope=bot\n Bot servers: "+servers +"\n Bot users: "+users+"\nBot uptime: "+days+"d "+hours+"h "+minutes+"m "+seconds+"s"+"\n**Server info**\nServer invite: "+invite.url+"\nServer members: "+message.guild.members.cache.size+"\nServer prefix: "+prefix+"\nServer language: "+langchar+"\nPremium server: "+settings.getSetting('premium', message.guild.id))
       })
     })
     .catch(console.error);

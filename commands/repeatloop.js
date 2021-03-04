@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const dp = require('discord-prefix');
+const DisTube = require('distube');
 
 module.exports = (message, client) => {
   let prefix = dp.getPrefix();
@@ -9,5 +10,7 @@ module.exports = (message, client) => {
   const args = message.content.slice(prefix.length).trim().split(' ');
   const command = args.shift().toLowerCase();
   const query = args.join(' ');
-  client.distube.setRepeatMode(message, parseInt(args[0]));
+  let mode = client.distube.setRepeatMode(message, parseInt(args[0]));
+        mode = mode ? mode == 2 ? "Repeat queue" : "Repeat song" : "Off";
+        message.channel.send("Set repeat mode to `" + mode + "`");
 }

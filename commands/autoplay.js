@@ -10,9 +10,6 @@ module.exports = (message, client) => {
   const args = message.content.slice(prefix.length).trim().split(' ');
   const command = args.shift().toLowerCase();
   const query = args.join(' ');
-  let queue = client.distube.getQueue(message)
-    message.channel.send('Current queue:\n' + queue.songs.map((song, id) =>
-            `**${id + 1}**. ${song.name} - \`${song.formattedDuration}\``
-        ).slice(0, 10).join("\n"));
-  
+  let mode = client.distube.toggleAutoplay(message);
+        message.channel.send("Set autoplay mode to `" + (mode ? "On" : "Off") + "`");
 }

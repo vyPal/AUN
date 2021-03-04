@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const fs = require("fs");
 const DisTube = require('distube');
 
-const distube = new DisTube(client, { searchSongs: true, emitNewSongOnly: true, youtubeCookie: 'CONSENT=PENDING+739; GPS=1; YSC=aJ-AJWRNXSE; VISITOR_INFO1_LIVE=VcRoEAtv-W0; PREF=tz=Europe.Prague; HSID=AvXKxG5L9QGMs2UXh; SSID=AI3DtPRyUdsXe6L02; APISID=fnvkQHGolhxhRF8e/ACS7py_9O7t2h9HOK; SAPISID=fBttb01TCiqfTsfl/AzzG0Mh_1RKBwqqZv; __Secure-3PAPISID=fBttb01TCiqfTsfl/AzzG0Mh_1RKBwqqZv; YTSESSION-1titawv=fc3233d08e6cd242803c1af675bc84d4c2gAAABBTmJxSk5rdk5pWXB1VzF1MjVTT1VBeTZkcl96eG5yNlh0ajBMYWlXSzhqSU5mSm8zbkJiQXJyU01UQjJDQnZHX2ZWaUZDUjNyUjF3X0owbHJ4eDZTbk1MdXNmdnBJUWNNajF2MklGUA==; LOGIN_INFO=AFmmF2swRQIhAIQkcNtTtxzry-frufqKsZgzczuYpXD7qVYHwTtizO9eAiBPfsbZlUL3CWu1LlrDrBfkq6LJs-KpvquF2BKkhQ6oRw:QUQ3MjNmeXdvNnZsTXd6dFk5c1ZFcURzdEF1RnU0NFBoMS1PWlZMWTREZ0lWVXppMmF3NVlNaGVsbTBEY1NSWmRrRnVGd21QbmVqSThPdEZoQkZkZ0xkQXg3cFhsbkVWV1loTWRtN1dTdTFzLW5IdU02a19rSTJ5LS1meGRpdTJVQkFTbmtkU3V3T09OcmZCaEM2LVIxcUtfYnBhdTVEbmhrUG8zU1F3SDFYQ25Zd3dQSjREMWdCUjd0ckpvbDN2ZmNiVGpsNGdvRnVy; SID=7QeU8lB0UWGPhEgl9A7wr_yoHTdWypfPINslht10IqZ7M6GS4pUshVlNB54e6qTREFZF1g.; __Secure-3PSID=7QeU8lB0UWGPhEgl9A7wr_yoHTdWypfPINslht10IqZ7M6GSHoP78810s5JWddKfOAbKtw.; SIDCC=AJi4QfEbou7nuMf5-XqAGPFBV3yaASfID1hpnDWpiLXwfhcTVGKtuMGqd_8WcBIS_6NdEaK0; __Secure-3PSIDCC=AJi4QfEUBzAiDaFFDrlnK8patP5BwQ9tCQvMQmE0xT1n2B76Zlibw7VkBnii0t_XTa2XfzuEew'});
+const distube = new DisTube(client, { searchSongs: true, emitNewSongOnly: true, youtubeCookie: 'YSC=JwkFcDTVx5E; VISITOR_INFO1_LIVE=QFPNCyqa06g; GPS=1; PREF=tz=Europe.Prague; CONSENT=YES+CZ.en+V9+BX+367; SID=7geU8hVGTEfe889sF0faYgErcko6MqHLSZRnUiQ2UM6m4TBYhhFrOX5aA6fNGwkx_HzbbA.; __Secure-3PSID=7geU8hVGTEfe889sF0faYgErcko6MqHLSZRnUiQ2UM6m4TBYge-2Q29zrVj2HS_N4vyMTg.; HSID=AyrM54fEPTUlML_3e; SSID=ABpYJpJwvitCb9DoR; APISID=IX345G0vXXb8y7u0/ApCJ1tAhjgtQBzBFs; SAPISID=VZVFpXQyUdHa6xyP/AO4XTIAYGlk9Ed1tU; __Secure-3PAPISID=VZVFpXQyUdHa6xyP/AO4XTIAYGlk9Ed1tU; LOGIN_INFO=AFmmF2swRgIhANpjXWzlJidnN9BLnREcaeY17AScpdwxguFCTR6Xh-HtAiEAkIj7fDWsMGQkQjOREJl39A4o9rugZKmsdiC0g5iVWuE:QUQ3MjNmeEFtWUIxcDljaUdjM3hjbU01T1ZGSmhPU2w1c2hKT1J6b0hYcXYtOVRaVWloWHJyWWp5SVFGdERaeHNCSW9mYkFlNGpBRVFVQkNPS2VXRDYzbWVEcnpPeUM1TERadFFrY1MyZjBpMXhfVFFFWlZScVFJUEJZdUxoYlZ3aVA2cHkzS013LTNiaWZDX0pyNzMzSC1RMDQ0NXJaRTJzT296MWJJNEt1NEVHSzlsZjYtdzl3ZXNPWFF6SGN1bFFWVkNoMGxwSy04; SIDCC=AJi4QfHiVxwsYFPTpkj_ymRXdXG3w_2LtCDeAhzuNGj9kFIrK_rYAF5ezr24f3NnK5bARfAquw; __Secure-3PSIDCC=AJi4QfG63mTXNx3jvpYcoEg2v632AwuKls28_upLXKDCiRp9H6_LZ1pMRxRXHce8rgcohWO4'});
 client.distube = distube;
 
 fs.readdir("./events/", (err, files) => {
@@ -13,6 +13,7 @@ fs.readdir("./events/", (err, files) => {
     client.on(eventName, (...args) => eventHandler(client, ...args));
   });
 });
+/*
 const status = (queue) => `Volume: \`${queue.volume}%\` | Filter: \`${queue.filter || "Off"}\` | Loop: \`${queue.repeatMode ? queue.repeatMode == 2 ? "All Queue" : "This Song" : "Off"}\` | Autoplay: \`${queue.autoplay ? "On" : "Off"}\``;
 distube
     .on("playSong", (message, queue, song) => message.channel.send(
@@ -38,15 +39,16 @@ distube
         console.error(e)
         message.channel.send("An error encountered: " + e);
     });
-/*
+    */
+
 fs.readdir("./music-events/", (err, files) => {
   files.forEach((file) => {
     const eventHandler = require(`./music-events/${file}`);
     const eventName = file.split(".")[0];
-    client.distube.on(eventName, (...args) => eventHandler(client, ...args));
+    distube.on(eventName, (...args) => eventHandler(client, ...args));
   });
 });
-*/
+
 // You really don't want your token here since your repl's code
 // is publically available. We'll take advantage of a Repl.it 
 // feature to hide the token we got earlier. 

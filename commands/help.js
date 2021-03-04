@@ -29,7 +29,7 @@ module.exports = (message, client) => {
   .setDescription('<> - '+lang.get('help_required', langchar)+'\n() - '+lang.get('help_optional', langchar)+'\n* - '+lang.get('help_onlypremium', langchar)+'\n\n')
   .addFields(
     {name: 'Fun', value: `${prefix}say <sentance> - ${lang.get('help_say', langchar)} *\n${prefix}meme - ${lang.get('help_meme', langchar)}`},
-    {name: 'Music (BETA)', value: `${prefix}play <song name> - ${lang.get('help_play', langchar)}\n${prefix}stop - ${lang.get('help_stop', langchar)}\n${prefix}skip - ${lang.get('help_skip', langchar)}\n${prefix}loop - ${lang.get('help_loop', langchar)}\n${prefix}volume <0-100> - ${lang.get('help_volume', langchar)}`},
+    {name: 'Music', value: `${prefix}play <song name> - ${lang.get('help_play', langchar)}\n${prefix}stop - ${lang.get('help_stop', langchar)}\n${prefix}skip - ${lang.get('help_skip', langchar)}\n${prefix}loop - ${lang.get('help_loop', langchar)}\n${prefix}volume <0-100> - ${lang.get('help_volume', langchar)}`},
   )
   .setTimestamp()
   .setFooter('Ping: ' + client.ws.ping + 'ms | Page 2')

@@ -12,17 +12,14 @@
   "dependencies": {
     "@discordjs/opus": "^0.4.0",
     "better-sqlite3": "^7.1.2",
-    "discord-player": "^3.4.0",
     "discord-prefix": "^2.0.0",
     "discord-server-settings": "^1.0.2",
-    "discord-slash-commands-client": "^1.1.1",
     "discord.js": "^12.5.1",
     "distube": "^2.8.10",
     "express": "^4.17.1",
     "ffmpeg": "0.0.4",
     "ffmpeg-static": "^4.2.7",
     "fluent-ffmpeg": "^2.1.2",
-    "minecraft-achievement": "0.0.1",
     "ytdl-core": "^4.5.0"
   }
 }
