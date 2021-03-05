@@ -73,7 +73,7 @@ module.exports = (client, message) => {
     stop(message, client);
   }else if(message.content.startsWith(prefix+"queue")){
     queue(message, client);
-  }else if([`3d`, `bassboost`, `echo`, `karaoke`, `nightcore`, `vaporwave`].some(v => message.content.includes(v)) && message.content.startsWith(prefix)){
+  }else if([`3d`, `bassboost`, `echo`, `karaoke`, `nightcore`, `vaporwave`, `flanger`, `gate`, `haas`, `reverse`, `surround`, `mcompand`, `phaser`, `tremolo`, `earwax`].some(v => message.content.includes(v)) && message.content.startsWith(prefix)){
     filter(message, client);
   }else if(message.content.startsWith(prefix+"volume")){
     volume(message, client);
