@@ -13,5 +13,6 @@ module.exports = (client, guild) => {
   defaultChannel.send("```Hello, I'm AUN. You can start using me by typing .help```");
   settings.setSetting(defaultChannel, 'defaultchannel', guild.id);
   settings.setSetting('en', 'lang', guild.id);
-  settings.setSetting(false, 'premium', guild.id);
+  settings.setSetting('false', 'premium', guild.id);
+  console.log('Aun was added to '+guild.name+' with '+guild.memberCount+' members!')
 }

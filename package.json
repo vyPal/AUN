@@ -1,6 +1,6 @@
 {
   "name": "AUN",
-  "version": "1.2.0",
+  "version": "1.2.7",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@discordjs/opus": "^0.4.0",
+    "@top-gg/sdk": "^3.0.9",
     "better-sqlite3": "^7.1.2",
     "discord-prefix": "^2.0.0",
     "discord-server-settings": "^1.0.2",
@@ -20,6 +21,7 @@
     "ffmpeg": "0.0.4",
     "ffmpeg-static": "^4.2.7",
     "fluent-ffmpeg": "^2.1.2",
+    "topgg-autoposter": "^1.1.7",
     "ytdl-core": "^4.5.0"
   }
 }
