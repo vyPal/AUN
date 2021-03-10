@@ -1,0 +1,16 @@
+body {
+    background: linear-gradient(225deg, #b00000, #b0b000, #00b000, #00b0b0, #0000b0, #b000b0);
+    background-size: 1200% 1200%;
+    animation: GradientBG 30s ease infinite;
+    color: black;
+}
+
+.title {
+    font-family: "Audiowide", sans-serif;
+}
+
+@keyframes GradientBG {
+    0%{background-position:0% 99%}
+    50%{background-position:100% 2%}
+    100%{background-position:0% 99%}
+}
