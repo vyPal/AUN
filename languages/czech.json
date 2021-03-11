@@ -47,7 +47,7 @@
   "language_title": "Jazyk serveru změněn",
   "language_error": "Chyba",
   "language_not_changed": "Jazyk nebyl změněn",
-  "language_not_mentioned": "Nezmínil jsi nový jazyk (Dostupné: en, cz)",
+  "language_not_mentioned": "Nezmínil jsi dostupný nový jazyk (Dostupné: en, cz)",
   "language_changed": "Jazyk serveru byl změněn na ",
 
   "setprefix_title": "Prefix serveru změněn",
@@ -102,5 +102,9 @@
   "premium_changed": "Premium je ",
 
   "mt_onlypremium_title": "Pouze pro premium",
-  "mt_onlypremium_text": "Omlouvám se, ale příkaz, který se snažíte spustit je pouze pro prémiové servery. Pozvěte mého majitele vyPal#7810"
+  "mt_onlypremium_text": "Omlouvám se, ale příkaz, který se snažíte spustit je pouze pro prémiové servery. Pozvěte mého majitele vyPal#7810",
+
+  "vote_title": "Hlasuj pro mě",
+  "vote_text": "Halsuj pro mě na top.gg tímhle odkazem: https://top.gg/bot/808613132850561055 a dostaneš speciální odměny!",
+  "vote_voted": "V posledních 12ti hodinách už jsi hlasoval. Vrať se později :)"
 }

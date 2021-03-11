@@ -35,41 +35,33 @@ module.exports = (message, client) => {
     var noerror = true;
   const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
   const reason = args.slice(1).join(' ') || lang.get('mute_no_reason', langchar);
+  let lockdown = settings.getSetting('lockdown', message.guild.id);
   const embed1 = new Discord.MessageEmbed()
   .setAuthor('AUN', 'https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI')
   .setTitle(lang.get('mute_title', langchar))
   .setColor('#ed3f2c')
-  .setDescription(lang.get('mute_noone_muted', langchar))
   .setTimestamp()
   .setFooter('Ping: ' + client.ws.ping + ' | '+prefix+command);
-  const embed = new Discord.MessageEmbed()
-  .setTitle(lang.get('mute_you_title', langchar))
-  .setAuthor("AUN", "https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI")
-  .setColor(0x00AE86)
-  .setDescription(lang.get('mute_you_part1', langchar)+message.guild.name+lang.get('mute_you_part2', langchar)+message.author.tag+lang.get('mute_you_part3', langchar)+reason)
-  .setFooter("Ping: "+client.ws.ping+" | AUN discord bot")
-  .setTimestamp();
-  if (!member) {
-    embed1.setTitle(lang.get('mute_error', langchar))
-      .setDescription(lang.get('mute_no_mention', langchar))
-      .setColor('#bd1300');
-      noerror = false;
-  }else{
-    if (!member.kickable) {
-        embed1.setTitle(lang.get('mute_error', langchar))
-      .setDescription(lang.get('mute_cant_mute', langchar))
-      .setColor('#bd1300');
-      noerror = false;
-    }
-  }
-    if(noerror){
-        embed1.setDescription(lang.get('mute_muted_part1', langchar)+member.user.tag+lang.get('mute_muted_part2', langchar));
-        member.user.send(embed);
-    }
+    embed1.setDescription('lockdown...');
     message.channel.send(embed1);
-  try{
-      return member.roles.add(muterole);
-  }catch{
-      return;
+  message.guild.members.cache.forEach(member => {
+    if(lockdown == 'true') {
+      try {
+        member.roles.remove(muterole);
+      }catch{
+        
+      }
+    }else if(lockdown == 'false') {
+      try {
+        member.roles.add(muterole);
+      }catch{
+        
+      }
     }
+  })
+  if(lockdown == 'true'){
+    lockdown = 'false';
+  }else if(lockdown == 'false'){
+    lockdown = 'true';
+  }
 }

@@ -7,7 +7,7 @@ const webhook = new Topgg.Webhook(process.env.TOP_GG_WEBHOOK)
 
 app.get('/', (req, res) => res.send('Hi!'));
 app.post('/dblwebhook', webhook.middleware(), (req, res) => {
-  console.log(req.vote.user)
+  console.log('User: '+req.vote.user+' has voted!')
 });
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));

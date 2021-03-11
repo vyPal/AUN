@@ -47,7 +47,7 @@
   "language_title": "Server language changed",
   "language_error": "Error",
   "language_not_changed": "The language was not changed",
-  "language_not_mentioned": "You did not provide a language to set (Available: en, cz)",
+  "language_not_mentioned": "You did not provide a valid language to set (Available: en, cz)",
   "language_changed": "The server language was changed to ",
 
   "setprefix_title": "Server prefix changed",
@@ -102,5 +102,9 @@
   "premium_changed": "Premium was ",
 
   "mt_onlypremium_title": "Premium only",
-  "mt_onlypremium_text": "I am sorry but this command is available only on premium servers. If you want to get premium, invite my owner: vyPal#7810"
+  "mt_onlypremium_text": "I am sorry but this command is available only on premium servers. If you want to get premium, invite my owner: vyPal#7810",
+
+  "vote_title": "Vote for me",
+  "vote_text": "Vote for me on top.gg using this link: https://top.gg/bot/808613132850561055 to get special rewards!",
+  "vote_voted": "You have already voted in the last 12 hours! Come back a bit later :)"
 }

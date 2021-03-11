@@ -23,6 +23,8 @@ const queue = require("../commands/queue");
 const filter = require("../commands/filter");
 const volume = require("../commands/volume");
 const autoplay = require("../commands/autoplay");
+const vote = require("../commands/vote");
+const lockdown = require("../commands/lockdown");
 
 module.exports = (client, message) => {
   let prefix = dp.getPrefix();
@@ -79,5 +81,9 @@ module.exports = (client, message) => {
     volume(message, client);
   }else if(message.content.startsWith(prefix+"autoplay")){
     autoplay(message, client);
+  }else if(message.content.startsWith(prefix+"vote")){
+    vote(message, client);
+  }else if(message.content.startsWith(prefix+"lockdown")){
+    lockdown(message, client);
   }
 }

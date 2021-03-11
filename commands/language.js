@@ -23,6 +23,10 @@ module.exports = (message, client) => {
     embed1.setTitle(lang.get('language_error', langchar))
       .setDescription(lang.get('language_not_mentioned', langchar))
       .setColor('#bd1300');
+  }else if(['cz', 'en'].some(v => args[0].includes(v))){
+    embed1.setTitle(lang.get('language_error', langchar))
+      .setDescription(lang.get('language_not_mentioned', langchar))
+      .setColor('#bd1300');
   }else{
     const newlanguage = args[0];
     settings.setSetting(newlanguage, 'lang', message.guild.id);

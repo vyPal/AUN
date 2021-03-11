@@ -47,5 +47,5 @@ module.exports = (message, client) => {
   setTimeout(() => {
     message.channel.send({embed})
     message.channel.stopTyping()
-  }, 2000);
+  }, 1500);
 }
