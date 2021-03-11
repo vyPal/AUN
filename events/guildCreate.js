@@ -10,7 +10,7 @@ module.exports = (client, guild) => {
     }
   })
   //defaultChannel will be the channel object that the bot first finds permissions for
-  defaultChannel.send("```Hello, I'm AUN. You can start using me by typing .help```");
+  defaultChannel.send("```Hello, I'm AUN. You can start using me by typing .help```\nPlease make shure to join our discord server at https://discord.gg/mmyvm5HXGn");
   settings.setSetting(defaultChannel, 'defaultchannel', guild.id);
   settings.setSetting('en', 'lang', guild.id);
   settings.setSetting('false', 'premium', guild.id);

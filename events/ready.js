@@ -25,4 +25,6 @@ module.exports = (client) => {
   dp.setPrefix(default_prefix);
   settings.setSetting(default_language, 'lang');
   settings.setSetting('false', 'premium');
+  settings.setSetting('false', 'welcomer_join');
+  settings.setSetting('false', 'welcomer_leave');
 };

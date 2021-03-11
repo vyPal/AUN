@@ -25,6 +25,7 @@ const volume = require("../commands/volume");
 const autoplay = require("../commands/autoplay");
 const vote = require("../commands/vote");
 const lockdown = require("../commands/lockdown");
+const welcomer = require("../commands/welcomer");
 
 module.exports = (client, message) => {
   let prefix = dp.getPrefix();
@@ -85,5 +86,7 @@ module.exports = (client, message) => {
     vote(message, client);
   }else if(message.content.startsWith(prefix+"lockdown")){
     lockdown(message, client);
+  }else if(message.content.startsWith(prefix+"welcomer")){
+    welcomer(message, client);
   }
 }

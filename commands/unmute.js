@@ -2,9 +2,10 @@ const Discord = require("discord.js");
 const dp = require('discord-prefix');
 const lang = require('../language_manager');
 const settings = require('discord-server-settings');
+const idonthaveperms = require("../mt/idonthaveperms");
 
 module.exports = (message, client) => {
-  if (!message.member.permissions.has("MANAGE_ROLES")) return;
+  if (!message.member.permissions.has("MANAGE_ROLES")) idonthaveperms(message, client);
   let prefix = dp.getPrefix();
   if(dp.getPrefix(message.guild.id)){
     prefix = dp.getPrefix(message.guild.id);
