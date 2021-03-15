@@ -13,8 +13,8 @@ module.exports = async (message, client) => {
   var welcomer_leave = await settings.getSetting('welcomer_leave', message.guild.id) || 'false';
   const args = message.content.slice(prefix.length).trim().split(' ');
   const command = args.shift().toLowerCase();
-  const yes = client.emojis.get('819524813789855774');
-  const no = client.emojis.get('819524846442250260')
+  const yes = client.emojis.cache.get('819524813789855774');
+  const no = client.emojis.cache.get('819524846442250260')
   const embed1 = new Discord.MessageEmbed()
   .setAuthor('AUN', 'https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI')
   .setTitle('Welcomer settings')
@@ -33,7 +33,7 @@ module.exports = async (message, client) => {
   .setAuthor('AUN', 'https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI')
   .setTitle('Welcomer settings')
   .setColor('#0db9f2')
-  .setDescription(`You are configuring welcomer join\n\nReply to this message with the message, that you want to send on member join. You can use `+'${member}'+` in your message to mention the user.`)
+  .setDescription(`You are configuring welcomer join\n\nReply to this message with the message, that you want to send on member join. You can use `+'(member)'+` in your message to mention the user.`)
   .setTimestamp()
   .setFooter('Ping: ' + client.ws.ping + 'ms | Welcomer')
   const embed4 = new Discord.MessageEmbed()
@@ -55,7 +55,7 @@ module.exports = async (message, client) => {
   .setAuthor('AUN', 'https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI')
   .setTitle('Welcomer settings')
   .setColor('#0db9f2')
-  .setDescription(`You are configuring welcomer leave\n\nReply to this message with the message, that you want to send on member leave. You can use `+'${member}'+` in your message to mention the user.`)
+  .setDescription(`You are configuring welcomer leave\n\nReply to this message with the message, that you want to send on member leave. You can use `+'(member)'+` in your message to mention the user.`)
   .setTimestamp()
   .setFooter('Ping: ' + client.ws.ping + 'ms | Welcomer')
   const embed7 = new Discord.MessageEmbed()
@@ -69,10 +69,11 @@ module.exports = async (message, client) => {
   return message.channel.send({embed: embed1}).then(embedMessage => {
       embedMessage.react(yes).then(() => {embedMessage.react(no)})
       .then(() => {
-          const backwardsFilter = (reaction, user) => reaction.emoji.name === yes && user.id === message.author.id;
-          const forwardsFilter = (reaction, user) => reaction.emoji.name === no && user.id === message.author.id;
-          const backwards = embedMessage.createReactionCollector(backwardsFilter, {timer: 30000});
-          const forwards = embedMessage.createReactionCollector(forwardsFilter, {timer: 30000});
+          const backwardsFilter = (reaction, user) => reaction.emoji === yes && user.id === message.author.id;
+          const forwardsFilter = (reaction, user) => reaction.emoji === no && user.id === message.author.id;
+          const filter = m => m.author.id === message.author.id
+          const backwards = embedMessage.createReactionCollector(backwardsFilter/*, {timer: 30000}*/);
+          const forwards = embedMessage.createReactionCollector(forwardsFilter/*, {timer: 30000}*/);
           backwards.on('collect', (reaction, user) => {
               embedMessage.edit(embed2)
               reaction.users.remove(user.id)
@@ -95,7 +96,7 @@ module.exports = async (message, client) => {
                   embedMessage.edit(embed4)
                   message.delete()
                   settings.setSetting('true', 'welcomer_join', message.guild.id)
-                  settings.setSetting(channel, 'welcomer_join_channel', message.guild.id)
+                  settings.setSetting(channel.id, 'welcomer_join_channel', message.guild.id)
                   settings.setSetting(joinmsg, 'welcomer_join_msg', message.guild.id)
                 })
               })

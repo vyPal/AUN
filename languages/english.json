@@ -36,6 +36,8 @@
   "help_stop": "stops the songs",
   "help_loop": "sets loop mode (0-off, 1-song, 2-playlist)",
   "help_volume": "sets the playback volume",
+  "help_autoplay": "toggles the autoplay mode",
+  "help_defaultchannel": "sets a new default channel for bot announcements",
 
   "kick_title": "User was kicked",
   "kick_error": "Error",

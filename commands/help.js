@@ -19,7 +19,7 @@ module.exports = (message, client) => {
   .addFields(
     { name: 'Info', value: `${prefix}help - ${lang.get('help_help', langchar)}\n${prefix}info - ${lang.get('help_info', langchar)}` },
     { name: 'Moderation', value: `${prefix}ban <@user> (reason) - ${lang.get('help_ban', langchar)}\n${prefix}unban <@user> (reason) - ${lang.get('help_unban', langchar)}\n${prefix}kick <@user> (reason) - ${lang.get('help_kick', langchar)}\n${prefix}mute <@user> (reason) - ${lang.get('help_mute', langchar)}\n${prefix}unmute <@user> (reason) - ${lang.get('help_unmute', langchar)}` },
-    { name: 'Settings', value: `${prefix}setprefix <prefix> - ${lang.get('help_setprefix', langchar)}\n${prefix}language <locale> - ${lang.get('help_language', langchar)}` },)
+    { name: 'Settings', value: `${prefix}setprefix <prefix> - ${lang.get('help_setprefix', langchar)}\n${prefix}language <locale> - ${lang.get('help_language', langchar)}\n${prefix}defaultchannel <#channel> - ${lang.get('help_defaultchannel', langchar)}` },)
   .setTimestamp()
   .setFooter('Ping: ' + client.ws.ping + 'ms | Page 1')
   const embed2 = new Discord.MessageEmbed()
@@ -29,7 +29,7 @@ module.exports = (message, client) => {
   .setDescription('<> - '+lang.get('help_required', langchar)+'\n() - '+lang.get('help_optional', langchar)+'\n* - '+lang.get('help_onlypremium', langchar)+'\n\n')
   .addFields(
     {name: 'Fun', value: `${prefix}say <sentance> - ${lang.get('help_say', langchar)} *\n${prefix}meme - ${lang.get('help_meme', langchar)}`},
-    {name: 'Music', value: `${prefix}play <song name> - ${lang.get('help_play', langchar)}\n${prefix}stop - ${lang.get('help_stop', langchar)}\n${prefix}skip - ${lang.get('help_skip', langchar)}\n${prefix}loop - ${lang.get('help_loop', langchar)}\n${prefix}volume <0-100> - ${lang.get('help_volume', langchar)}`},
+    {name: 'Music', value: `${prefix}play <song name> - ${lang.get('help_play', langchar)}\n${prefix}stop - ${lang.get('help_stop', langchar)}\n${prefix}skip - ${lang.get('help_skip', langchar)}\n${prefix}loop - ${lang.get('help_loop', langchar)}\n${prefix}volume <0-100> - ${lang.get('help_volume', langchar)}\n${prefix}autoplay - ${lang.get('help_autoplay', langchar)}\n`},
   )
   .setTimestamp()
   .setFooter('Ping: ' + client.ws.ping + 'ms | Page 2')

@@ -36,6 +36,8 @@
   "help_stop": "zastaví hudbu",
   "help_loop": "nastaví mód loopu (0-nic, 1-písnička, 2-playlist)",
   "help_volume": "nastaví hlasitost",
+  "help_autoplay": "změní stav autoplaye",
+  "help_defaultchannel": "nastaví hlavní kanál pro systémové zprávy",
 
   "kick_title": "Uživatel byl vyhozen",
   "kick_error": "Chyba",
