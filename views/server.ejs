@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/png" href="https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI"/>
+
+    <title><%- pageTitle %></title>
+
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <%- include('partials/navbar.ejs') %>
+
+    <div class="page-content">
+        <% guilds.forEach(guild => { %>
+          <% if(guild.id == guild_id) { %>
+            <h1><%- guild.name %> settings</h1>
+          <% } %>
+        <% }) %>
+        <br>
+        <% guilds.forEach(guild => { %>
+          <% if(guild.id == guild_id){ %>
+            <% if((guild.permissions & 0x20) == 0x20){ %>
+              <div class="settings-container">
+                <h2>Server prefix</h2>
+                <form id="prefix-form">
+                  <input type="text" id="prefixbox" placeholder="<%- discordPrefix.getPrefix(guild_id) %>" />
+                  <input id="prefixbutton" type="submit" value="Save">
+                </form>
+              </div>
+              <div class="settings-container">
+                <h2>Server language</h2>
+                <form id="language-form">
+                  <select name="language" id="languagebox" form="language-form">
+                    <option value="en" selected>en</option>
+                    <option value="cz">cz</option>
+                  </select>
+                  <input id="languagebutton" type="submit" value="Save">
+                </form>
+              </div>
+              <div class="settings-container">
+                <h2>Server default channel</h2>
+                <form id="dchannel-form">
+                  <select name="dchannel" id="dchannelbox" form="dchannel-form">
+                    <% discordClient.guilds.cache.get(guild_id).channels.cache.filter(channel => channel.type == "text").forEach(channel => { %>
+                      <option value="<%- channel.id %>"><%- channel.name %></option>
+                    <% }) %>
+                  </select>
+                  <input id="dchannelbutton" type="submit" value="Save">
+                </form>
+              </div>
+              <div class="settings-container">
+                <h2>Welcomer join</h2>
+                <form id="welcomerjoin-form">
+                  <select name="welcomerjoinchannel" id="welcomerjoinchannelbox" form="welcomerjoin-form">
+                    <% discordClient.guilds.cache.get(guild_id).channels.cache.filter(channel => channel.type == "text").forEach(channel => { %>
+                      <option value="<%- channel.id %>"><%- channel.name %></option>
+                    <% }) %>
+                  </select><br>
+                  <p>You can use (member), (server), and (members) placeholders</p>
+                  <input type="text" id="welcomerjoinbox" placeholder="<%- serverSettings.getSetting('welcomer_join_msg', guild_id) %>" />
+                  <input id="welcomerjoinbutton" type="submit" value="Save">
+                </form>
+              </div>
+              <script> 
+              var socket = io.connect('https://www.aunbot.tk');
+              socket.on('connect', function(data) {
+                  socket.emit('join', 'Connection from <%- user.tag %> for <%- guild.name %>');
+              });
+              //alerts
+              socket.on('broad', function(data) {
+                alert(data);
+              });
+              //prefix
+              $('#prefix-form').submit(function(e){
+                e.preventDefault();
+                var message = $('#prefixbox').val();
+                if(message == "") {
+                  message = "<%- discordPrefix.getPrefix(guild_id) %>";
+                }
+                message = '{"cmd": "set","id": "<%- guild_id %>","prefix": "' + message + '"}'
+                socket.emit('prefix', message);
+              });
+              //language
+              $('#language-form').submit(function(e){
+                e.preventDefault();
+                var message = $('#languagebox').val();
+                message = '{"cmd": "set","id": "<%- guild_id %>","language": "' + message + '"}'
+                socket.emit('language', message);
+              });
+              //default channel
+              $('#dchannel-form').submit(function(e){
+                e.preventDefault();
+                var message = $('#dchannelbox').val();
+                message = '{"cmd": "set","id": "<%- guild_id %>","channel": "' + message + '"}'
+                socket.emit('dchannel', message);
+              });
+              //welcomer join module
+              $('#welcomerjoin-form').submit(function(e){
+                e.preventDefault();
+                var message = $('#welcomerjoinbox').val();
+                var channel = $('#welcomerjoinchannelbox').val();
+                message = '{"cmd": "set","id": "<%- guild_id %>","channel": "' + channel + '", "msg": "' + message + '"}'
+                socket.emit('welcomerjoin', message);
+              });
+              </script>
+            <% } else { %>
+              You do not have the <pre>MANAGE_GUILD</pre> permission
+            <% } %>
+          <% } %>
+        <% }) %>
+    </div>
+</body>
+</html>

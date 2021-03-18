@@ -88,7 +88,7 @@ module.exports = async (message, client) => {
                 embedMessage.edit(embed3)
                 message.channel.awaitMessages(filter, {
                   max: 1,
-                  time: 30000
+                  time: 60000
                 })
                 .then(message => {
                   message = message.first()

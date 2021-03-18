@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,500');
+
+body {
+    background: #2C2F33;
+    margin: 0 0;
+    padding: 0 0;
+}
+
+.page-content {
+    padding: 4px 42px;
+    transition: .25s ease;
+}
+
+.page-content h1 { margin-bottom: -10px; }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+p, a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+.navbar {
+    background: #23272A;
+    padding: 21px 42px;
+}
+
+.navbar a {
+    transition: .25s ease;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: #7792f3;
+}
+
+.navbar a:not(:last-child) {
+    margin-right: 12px;
+}
+
+.navbar .right {
+    float: right;
+}
+
+.server-div {
+  display: inline-block;
+  background: rgba(0,0,0,0.25);
+  text-align: center;
+  width: 200px;
+  margin: 20px;
+  padding: 5px;
+  padding-top: 15px;
+  border-radius: 15px;
+  transition: .25s ease;
+}
+
+.server-div .icon {
+  border-radius: 90px;
+}
+
+.settings-container {
+  background: rgba(0,0,0,0.25);
+  margin: 20px;
+  border-radius: 15px;
+  transition: .25s ease;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  padding: 15px;
+}
+
+.button-manage {
+  background-color: #30db80;
+  border-radius: 10px;
+  text-align: center;
+  display: inline-block;
+  padding: 15px;
+}
+
+.button-invite {
+  background-color: #db4a30;
+  border-radius: 10px;
+  text-align: center;
+  display: inline-block;
+  padding: 15px;
+}
+
+#prefixbox {
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+#prefixbutton {
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #069701;
+  border-radius: 4px;
+  background-color: #07d300;
+  resize: none;
+  transition-duration: 0.4s;
+}
+
+#prefixbutton:hover {
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #07d300;
+  border-radius: 4px;
+  background-color: #069701;
+  resize: none;
+  transition-duration: 0.4s;
+}
+
+#languagebox {
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+#languagebox option {
+  color: black;
+}
+
+#languagebutton {
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #069701;
+  border-radius: 4px;
+  background-color: #07d300;
+  resize: none;
+  transition-duration: 0.4s;
+}
+
+#languagebutton:hover {
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #07d300;
+  border-radius: 4px;
+  background-color: #069701;
+  resize: none;
+  transition-duration: 0.4s;
+}
+
+#dchannelbox {
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+#dchannelbox option {
+  color: black;
+}
+
+#dchannelbutton {
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #069701;
+  border-radius: 4px;
+  background-color: #07d300;
+  resize: none;
+  transition-duration: 0.4s;
+}
+
+#dchannelbutton:hover {
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #07d300;
+  border-radius: 4px;
+  background-color: #069701;
+  resize: none;
+  transition-duration: 0.4s;
+}
+
+#welcomerjoinchannelbox {
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+#welcomerjoinchannelbox option {
+  color: black;
+}
+
+#welcomerjoinbox {
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+  width: 400px;
+}
+
+#welcomerjoinbox option {
+  color: black;
+}
+
+#welcomerjoinbutton {
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #069701;
+  border-radius: 4px;
+  background-color: #07d300;
+  resize: none;
+  transition-duration: 0.4s;
+}
+
+#welcomerjoinbutton:hover {
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #07d300;
+  border-radius: 4px;
+  background-color: #069701;
+  resize: none;
+  transition-duration: 0.4s;
+}

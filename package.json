@@ -1,6 +1,6 @@
 {
   "name": "AUN",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -15,12 +15,19 @@
     "better-sqlite3": "^7.1.2",
     "discord-prefix": "^2.0.0",
     "discord-server-settings": "^1.0.2",
+    "discord-user-settings": "^1.0.4",
     "discord.js": "^12.5.1",
     "distube": "^2.8.10",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "ffmpeg": "0.0.4",
     "ffmpeg-static": "^4.2.7",
     "fluent-ffmpeg": "^2.1.2",
+    "form-data": "^4.0.0",
+    "jquery": "^3.6.0",
+    "node-fetch": "^2.6.1",
+    "socket.io": "^4.0.0",
     "topgg-autoposter": "^1.1.7",
     "ytdl-core": "^4.5.0"
   }

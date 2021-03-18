@@ -8,10 +8,10 @@ module.exports = async (client, member) => {
   if(await settings.getSetting('welcomer_join', guild.id) == 'true'){
     const joinchannel = await settings.getSetting('welcomer_join_channel', guild.id)
     const channel = await guild.channels.cache.get(joinchannel)
-    const joinmessage = await settings.getSetting('welcomer_join_msg', guild.id)
+    let joinmessage = await settings.getSetting('welcomer_join_msg', guild.id)
     joinmessage = joinmessage.replace("(member)", `<@${uname}>`)
-    joinmessage = joinmessage.replace("(server)", `<@${guildname}>`)
-    joinmessage = joinmessage.replace("(members)", `<@${membercount}>`)
+    joinmessage = joinmessage.replace("(server)", `${guildname}`)
+    joinmessage = joinmessage.replace("(members)", `${membercount}`)
     channel.send(joinmessage)
   }
 }
