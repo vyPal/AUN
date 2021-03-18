@@ -13,4 +13,10 @@ module.exports = (app) => {
 
     // '/logout'
     app.use('/logout', require('./routes/discord'));
+
+    // '/me'
+    app.use('/me', require('./routes/index'));
+
+    // '/docs'
+    app.use('/docs', require('./routes/index'));
 }

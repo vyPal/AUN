@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/png" href="https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI"/>
+
+    <title><%- pageTitle %></title>
+
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+</head>
+<body>
+    <%- include('partials/navbar.ejs') %>
+    <%- include('partials/sidebar.ejs') %>
+    <section style="margin-left: 225px;" class="page-content">
+        <h1>AUN Commands</h1>
+        <h3>If you don't remember your server's prefix, ping @AUN</h3>
+        <h3 id="info">Info</h3>
+        <ul>
+          <li><code>.info</code> - shows a big amount of info about the bot and server</li><br>
+          <li><code>.help</code> - shows a complete list of commands, and how to use them</li>
+        </ul>
+        <h3 id="moderation">Moderation</h3>
+        <ul>
+          <li><code>.ban &lt;@user&gt; (reason)</code> - this will permanently ban a user from the server. When the user is banned it will send him a DM with the supplied reason</li><br>
+          <li><code>.unban &lt;@user&gt;</code> - unbans a user and sends him a DM saying that he is permited to join back to the server</li><br>
+          <li><code>.kick &lt;@user&gt; (reason)</code> - kicks a user from the server and sends him a DM with the specified reason</li><br>
+          <li><code>.mute &lt;@user&gt;</code> - mutes a user in all channels of the server. The member will not have permission to write, connect to VCs, send files, or add reactions</li><br>
+          <li><code>.unmute &lt;@user&gt;</code> - unmutes the user and gives him back all his previous roles</li>
+        </ul>
+        <h3 id="settings">Settings</h3>
+        <ul>
+          <li><code>.setprefix &lt;prefix&gt;</code> - sets a new server prefix. You can use anything. The bot only accepts the first argument, which means that you can't use whitespaces in your prefix</li><br>
+          <li><code>.language &lt;locale&gt;</code> - sets a new language for the bot to use in your server. The only available ones are en, and cz. If you would like more, write in the discussions or add a pull request</li><br>
+          <li><code>.defaultchannel &lt;#channel&gt;</code> - sets the default channel for bot announcements</li>
+        </ul>
+        <h3 id="fun">Fun</h3>
+        <ul>
+          <li><code>.meme</code> - finds and sends a random hot meme from r/meme</li><br>
+          <li><code>.say &lt;sentence&gt;</code> - makes the bot send the message that you enter</li>
+        </ul>
+        <h3 id="music">Music</h3>
+        <ul>
+          <li><code>.play &lt;song name&gt;</code> - this will search for the song you requested. It will send a list of the first 15 results for you to pick from</li><br>
+          <li><code>.stop</code> - stops the queue, and the bot leaves the VC</li><br>
+          <li><code>.skip</code> - skips the currently playing song and plays the next one in the queue</li><br>
+          <li><code>.queue</code> - shows the next 10 songs in the server's queue</li><br>
+          <li><code>.autoplay</code> - toggles the autoplay mode (default is on)</li><br>
+          <li><code>.loop &lt;mode&gt;</code> - sets the loop mode for the queue (modes: 0-off, 1-loop song, 2-loop queue)</li><br>
+          <li><code>.volume &lt;0-100&gt;</code> - sets the playback volume (default is 50)</li><br>
+          <li><code>.3d/bassboost/echo/karaoke/nightcore/vaporwave/surround</code> -  sets a filter for all the songs in the queue. To turn off, write the same filter again</li>
+        </ul>
+        <h3 id="welcomer">Welcomer</h3>
+        <ul>
+          <li><code>.welcomer</code> - type this command and the follow the on screen instrustions to setup the welcomer</li>
+        </ul>
+    </section>
+</body>
+</html>

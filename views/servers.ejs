@@ -26,7 +26,7 @@
               <% } %>
                 <h5><%- guild.name %></h5>
               <% if(!discordClient.guilds.cache.has(guild.id)) { %>
-                <a href="https://discordapp.com/api/oauth2/authorize?client_id=808613132850561055&redirect_uri=https://aun.jakubpalack.repl.co/authorize/callback&response_type=code&scope=bot&guild_id=<%- guild.id %>"><h5 class="button-invite">Invite</h5></a>
+                <a href="https://discordapp.com/api/oauth2/authorize?client_id=808613132850561055&redirect_uri=https://www.aunbot.tk/authorize/callback&response_type=code&scope=bot&guild_id=<%- guild.id %>"><h5 class="button-invite">Invite</h5></a>
               <% } else { %>
                 <a href="/server?id=<%= guild.id %>"><h5 class="button-manage">Manage</h5></a>
               <% } %>

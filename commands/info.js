@@ -19,6 +19,7 @@ module.exports = (message, client) => {
   .setTimestamp()
   .setFooter('Ping: ' + client.ws.ping + ' | '+prefix+command) 
 
+  /*
   client.shard.fetchClientValues('guilds.cache.size')
 	.then(results => {
 		console.log(`${results.reduce((acc, guildCount) => acc + guildCount, 0)} total guilds`);
@@ -43,9 +44,35 @@ module.exports = (message, client) => {
     .catch(console.error);
 	})
 	.catch(console.error);
+  
   message.channel.startTyping()
   setTimeout(() => {
     message.channel.send({embed})
     message.channel.stopTyping()
   }, 1500);
+  */
+  const promises = [
+    client.shard.fetchClientValues('guilds.cache.size'),
+    client.shard.broadcastEval('this.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)'),
+  ];
+
+  Promise.all(promises)
+    .then(results => {
+      const totalGuilds = results[0].reduce((acc, guildCount) => acc + guildCount, 0);
+      const totalMembers = results[1].reduce((acc, memberCount) => acc + memberCount, 0);
+      message.channel.createInvite()
+      .then((invite) => {
+        console.log(`Invite: ${invite.url}`)
+        let totalSeconds = (client.uptime / 1000);
+        let days = Math.floor(totalSeconds / 86400);
+        totalSeconds %= 86400;
+        let hours = Math.floor(totalSeconds / 3600);
+        totalSeconds %= 3600;
+        let minutes = Math.floor(totalSeconds / 60);
+        let seconds = Math.floor(totalSeconds % 60);
+        embed.setDescription("**Bot info**\nBot invite: https://discord.com/oauth2/authorize?client_id=808613132850561055&permissions=8&scope=bot\n Bot servers: "+totalGuilds +"\n Bot users: "+totalMembers+"\nBot uptime: "+days+"d "+hours+"h "+minutes+"m "+seconds+"s"+"\n**Server info**\nServer invite: "+invite.url+"\nServer members: "+message.guild.members.cache.size+"\nServer prefix: "+prefix+"\nServer language: "+langchar+"\nPremium server: "+settings.getSetting('premium', message.guild.id))
+        message.channel.send(embed)
+      })
+    })
+    .catch(console.error);
 }

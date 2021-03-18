@@ -10,8 +10,8 @@ module.exports = async (client, member) => {
     const channel = await guild.channels.cache.get(leavechannel)
     let leavemessage = await settings.getSetting('welcomer_leave_msg', guild.id)
     leavemessage = leavemessage.replace("(member)", `<@${uname}>`)
-    leavemessage = leavemessage.replace("(server)", `<@${guildname}>`)
-    leavemessage = leavemessage.replace("(members)", `<@${membercount}>`)
+    leavemessage = leavemessage.replace("(server)", `${guildname}`)
+    leavemessage = leavemessage.replace("(members)", `${membercount}`)
     channel.send(leavemessage)
   }
 }

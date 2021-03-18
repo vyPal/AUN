@@ -20,7 +20,7 @@ const session = require('express-session');
 app.set('view engine', 'ejs');
 app.use(express.static('static'));
 app.use(session({
-    secret: '48738924783748273742398747238',
+    secret: process.env.APP_SECRET,
     resave: false,
     saveUninitialized: false,
     expires: 604800000,
@@ -82,8 +82,4 @@ const manager = new ShardingManager('./bot.js', {
     token: process.env.DISCORD_TOKEN
 });
 manager.on('shardCreate', (shard) => console.log(`Shard ${shard.id} launched`));
-const poster = AutoPoster(process.env.TOP_GG_TOKEN, manager);
-poster.on('posted', () => {
-  console.log('Posted stats to top.gg')
-});
 manager.spawn();

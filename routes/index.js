@@ -22,4 +22,31 @@ router.get('/server', (req, res) => {
     res.render('server', { pageTitle: `Server manager`, user: req.session.user || null, guilds: req.session.guilds, guild_id: req.query.id , discordClient: client, serverSettings: serverSettings, userSettings: userSettings, discordPrefix: dp});
 });
 
+router.get('/me', (req, res) => {
+  if (!req.session.user) return res.redirect('/authorize');
+    res.render('me', { pageTitle: 'Me - ' + req.session.user.tag, user: req.session.user || null, userSettings: userSettings});
+});
+
+router.get('/me/deals', (req, res) => {
+  if (!req.session.user) return res.redirect('/authorize');
+    res.render('deals', { pageTitle: 'Special deals', user: req.session.user || null, userSettings: userSettings});
+});
+
+router.get('/me/premium', (req, res) => {
+  if (!req.session.user) return res.redirect('/authorize');
+    res.render('premium', { pageTitle: 'Your premium', user: req.session.user || null, userSettings: userSettings});
+});
+
+router.get('/docs', (req, res) => {
+    res.render('docs/index', { pageTitle: 'AUN Docs', user: req.session.user || null});
+});
+
+router.get('/docs/commands', (req, res) => {
+    res.render('docs/commands', { pageTitle: 'AUN Docs', user: req.session.user || null});
+});
+
+router.get('/docs/premium', (req, res) => {
+    res.render('docs/premium', { pageTitle: 'AUN Docs', user: req.session.user || null});
+});
+
 module.exports = router;

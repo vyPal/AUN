@@ -32,4 +32,13 @@ module.exports = (client) => {
   settings.setSetting('false', 'premium');
   settings.setSetting('false', 'welcomer_join');
   settings.setSetting('false', 'welcomer_leave');
+
+  setInterval(() => {
+    client.topggapi.postStats({
+      serverCount: client.guilds.cache.size,
+      shardId: client.shard.ids[0],
+      shardCount: client.options.shardCount
+    })
+    console.log("Posted stats to top.gg")
+  }, 1800000)
 };

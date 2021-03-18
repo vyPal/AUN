@@ -9,6 +9,10 @@ body {
 .page-content {
     padding: 4px 42px;
     transition: .25s ease;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    margin-top: 61px;
 }
 
 .page-content h1 { margin-bottom: -10px; }
@@ -28,6 +32,10 @@ p, a {
 .navbar {
     background: #23272A;
     padding: 21px 42px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 96%;
 }
 
 .navbar a {
@@ -46,6 +54,30 @@ p, a {
 
 .navbar .right {
     float: right;
+}
+
+.sidebar {
+    background: rgb(65, 65, 65);
+    padding: 21px 42px;
+    width: 150px;
+    height: 100%;
+    float: left;
+    position: fixed;
+    /*margin-top: 61px;*/
+}
+
+.sidebar a {
+    transition: .25s ease;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    color: #7792f3;
+}
+
+.sidebar a:not(:last-child) {
+    margin-right: 12px;
 }
 
 .server-div {
@@ -245,4 +277,31 @@ p, a {
   background-color: #069701;
   resize: none;
   transition-duration: 0.4s;
+}
+
+code {
+  font-family: Consolas,"courier new";
+  color: rgb(223, 223, 223);
+  background-color: #464646;
+  padding: 5px;
+  font-size: 105%;
+  border-radius: 8px;
+}
+
+.profile-card {
+  display: inline-block;
+  background: rgba(0,0,0,0.25);
+  text-align: center;
+  width: 200px;
+  margin: 20px;
+  padding: 15px;
+  padding-top: 20px;
+  border-radius: 15px;
+  transition: .25s ease;
+  margin-top: 50px;
+}
+
+.profile-card .icon {
+  border-radius: 90px;
+  display: inline;
 }
