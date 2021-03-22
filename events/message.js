@@ -26,6 +26,9 @@ const autoplay = require("../commands/autoplay");
 const vote = require("../commands/vote");
 const lockdown = require("../commands/lockdown");
 const welcomer = require("../commands/welcomer");
+const bugreport = require("../commands/bugreport");
+const clear = require("../commands/clear");
+const eval_cmd = require("../commands/eval");
 
 module.exports = (client, message) => {
   let prefix = dp.getPrefix();
@@ -88,5 +91,11 @@ module.exports = (client, message) => {
     lockdown(message, client);
   }else if(message.content.startsWith(prefix+"welcomer")){
     welcomer(message, client);
+  }else if([`bugreport`, `bug`].some(v => message.content.includes(v)) && message.content.startsWith(prefix)){
+    bugreport(message, client);
+  }else if([`clear`, `purge`].some(v => message.content.includes(v)) && message.content.startsWith(prefix)){
+    clear(message, client);
+  }else if(message.content.startsWith(prefix+"eval")){
+    eval_cmd(message, client);
   }
 }

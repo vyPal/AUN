@@ -4,7 +4,7 @@ const lang = require('../language_manager');
 const settings = require('discord-server-settings');
 
 module.exports = (message, client) => {
-  if (!message.member.permissions.has("BAN_MEMBERS")) return;
+  if (!message.member.permissions.has("BAN_MEMBERS")) return idonthaveperms(message, client);
   let prefix = dp.getPrefix();
   if(dp.getPrefix(message.guild.id)){
     prefix = dp.getPrefix(message.guild.id);
@@ -15,6 +15,7 @@ module.exports = (message, client) => {
     var noerror = true;
   const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
   const reason = args.slice(1).join(' ') || lang.get('ban_no_reason', langchar);
+  client.logger.log('info', `Ban ${member.user.id}`)
   const embed1 = new Discord.MessageEmbed()
   .setAuthor('AUN', 'https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI')
   .setTitle(lang.get('ban_title', langchar))
@@ -49,7 +50,7 @@ module.exports = (message, client) => {
   try{
     member.user.send(embed);
     return member.ban({days: 0, reason: `${reason}`});
-  }catch{
-      return;
+  }catch (e){
+      client.logger.log('error', e)
     }
 }

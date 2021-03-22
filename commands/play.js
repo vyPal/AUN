@@ -11,4 +11,5 @@ module.exports = (message, client) => {
   const command = args.shift().toLowerCase();
   const query = args.join(' ');
   client.distube.play(message, query);
+  client.logger.log('info', `Played ${query} in ${message.guild.name}`)
 }

@@ -52,8 +52,9 @@ module.exports = {
                     .setURL(`https://reddit.com/${subRedditName}`)
                 message.channel.send(imageembed)
             }).on('error', function (e) {
-                console.log('Got an error: ', e)
+                client.logger.log('error', 'Got a meme error: ', e)
             })
         })
+        client.logger.log('info', `Posted a meme in ${message.guild.name}`)
     },
 }

@@ -32,5 +32,6 @@ module.exports = (message, client) => {
     settings.setSetting(newlanguage, 'lang', message.guild.id);
     embed1.setDescription(lang.get('language_changed', langchar)+newlanguage)
   }
+  client.logger.log('info', `Changed language in ${message.guild.name}`)
   message.channel.send(embed1);
 }

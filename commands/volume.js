@@ -11,4 +11,5 @@ module.exports = (message, client) => {
   const command = args.shift().toLowerCase();
   const query = args.join(' ');
   client.distube.setVolume(message, args[0]);
+  client.logger.log('info', `Set volume in ${message.guild.name}`)
 }

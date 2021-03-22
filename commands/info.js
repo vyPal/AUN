@@ -2,6 +2,7 @@ const Discord = require("discord.js")
 const dp = require('discord-prefix');
 const lang = require('../language_manager');
 const settings = require('discord-server-settings');
+const ms = require('ms');
 
 module.exports = (message, client) => {
   var langchar = settings.getSetting('lang', message.guild.id)
@@ -9,6 +10,7 @@ module.exports = (message, client) => {
   if(dp.getPrefix(message.guild.id)){
     prefix = dp.getPrefix(message.guild.id);
   }
+  client.logger.log('info', `${message.guild.name} wanted info`)
   const args = message.content.slice(prefix.length).trim().split(' ');
   const command = args.shift().toLowerCase();
   const embed = new Discord.MessageEmbed()
@@ -70,7 +72,7 @@ module.exports = (message, client) => {
         totalSeconds %= 3600;
         let minutes = Math.floor(totalSeconds / 60);
         let seconds = Math.floor(totalSeconds % 60);
-        embed.setDescription("**Bot info**\nBot invite: https://discord.com/oauth2/authorize?client_id=808613132850561055&permissions=8&scope=bot\n Bot servers: "+totalGuilds +"\n Bot users: "+totalMembers+"\nBot uptime: "+days+"d "+hours+"h "+minutes+"m "+seconds+"s"+"\n**Server info**\nServer invite: "+invite.url+"\nServer members: "+message.guild.members.cache.size+"\nServer prefix: "+prefix+"\nServer language: "+langchar+"\nPremium server: "+settings.getSetting('premium', message.guild.id))
+        embed.setDescription("**Bot info**\nBot invite: https://discord.com/oauth2/authorize?client_id=808613132850561055&permissions=8&scope=bot\n Bot servers: "+totalGuilds +"\n Bot users: "+totalMembers+"\nBot uptime: "/*+days+"d "+hours+"h "+minutes+"m "+seconds+"s"+*/+ms(client.uptime)+"\n**Server info**\nServer invite: "+invite.url+"\nServer members: "+message.guild.members.cache.size+"\nServer prefix: "+prefix+"\nServer language: "+langchar+"\nPremium server: "+settings.getSetting('premium', message.guild.id))
         message.channel.send(embed)
       })
     })

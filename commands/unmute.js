@@ -68,9 +68,10 @@ module.exports = (message, client) => {
         member.user.send(embed);
     }
     message.channel.send(embed1);
+    client.logger.log('info', `Unmuted ${member} in ${message.guild.name}`)
   try{
       return member.roles.remove(muterole);
-  }catch{
-      return;
+  }catch (e){
+      return client.logger.log('error', e);
     }
 }

@@ -11,4 +11,5 @@ module.exports = (message, client) => {
   const command = args.shift().toLowerCase();
   const query = args.join(' ');
   client.distube.skip(message);
+  client.logger.log('info', `Skipped ${message.guild.name}`)
 }

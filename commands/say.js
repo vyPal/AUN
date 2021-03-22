@@ -23,4 +23,5 @@ module.exports = (message, client) => {
   .setFooter('Ping: ' + client.ws.ping + ' | '+prefix+command);
     message.channel.send(embed1);
     message.delete();
+    client.logger.log('info', `Said ${reason} in ${message.guild.name}`)
 }

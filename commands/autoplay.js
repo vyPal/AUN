@@ -12,4 +12,5 @@ module.exports = (message, client) => {
   const query = args.join(' ');
   let mode = client.distube.toggleAutoplay(message);
         message.channel.send("Set autoplay mode to `" + (mode ? "On" : "Off") + "`");
+        client.logger.log('info', `Autoplay ${(mode ? "On" : "Off")} in ${message.guild.name}`)
 }

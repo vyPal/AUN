@@ -9,6 +9,7 @@ module.exports = (message, client) => {
   if(dp.getPrefix(message.guild.id)){
     prefix = dp.getPrefix(message.guild.id);
   }
+  client.logger.log('info', `Help requested in  ${message.guild.name}`)
   const args = message.content.slice(prefix.length).trim().split(' ');
   const command = args.shift().toLowerCase();
   const embed1 = new Discord.MessageEmbed()

@@ -14,6 +14,7 @@ module.exports = (message, client) => {
   const command = args.shift().toLowerCase();
   var noerror = true
   const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
+  client.logger.log('info', `I kicked ${member.user.username}`)
   const embed1 = new Discord.MessageEmbed()
   .setAuthor('AUN', 'https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI')
   .setTitle(lang.get('kick_title', langchar))

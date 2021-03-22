@@ -27,6 +27,7 @@ module.exports = (message, client) => {
     const newprefix = args[0];
     dp.setPrefix(newprefix, message.guild.id);
     embed1.setDescription(lang.get('setprefix_changed', langchar)+newprefix)
+    client.logger.log('info', `Set prefix to ${newprefix} in ${message.guild.name}`)
   }
   message.channel.send(embed1);
 }

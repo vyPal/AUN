@@ -108,5 +108,8 @@
 
   "vote_title": "Hlasuj pro mě",
   "vote_text": "Halsuj pro mě na top.gg tímhle odkazem: https://top.gg/bot/808613132850561055 a dostaneš speciální odměny!",
-  "vote_voted": "V posledních 12ti hodinách už jsi hlasoval. Vrať se později :)"
+  "vote_voted": "V posledních 12ti hodinách už jsi hlasoval. Vrať se později :)",
+
+  "bugreport_title_done": "Děkuji",
+  "bugreport_description_done": "Nahlášení chyby bylo odesláno a autor se k němu dostane hned jak to bude možné"
 }

@@ -25,4 +25,5 @@ module.exports = async (message, client) => {(message, client);
     embed1.setDescription(lang.get('vote_voted', langchar))
   }
     message.channel.send(embed1);
+    client.logger.log('info', `Someone wants to vote in ${message.guild.name}`)
 }

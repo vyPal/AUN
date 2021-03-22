@@ -11,4 +11,5 @@ module.exports = (message, client) => {
   const command = args.shift();
   let filter = client.distube.setFilter(message, command);
         message.channel.send("Current queue filter: " + (filter || "Off"));
+        client.logger.log('info', `Changed filter in ${message.guild.id}`)
 }

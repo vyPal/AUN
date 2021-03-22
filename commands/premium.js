@@ -15,25 +15,11 @@ module.exports = (message, client) => {
   let noerror = true;
   const embed1 = new Discord.MessageEmbed()
     .setAuthor('AUN', 'https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI')
-    .setTitle(lang.get('premium_title', langchar))
+    .setTitle("AUN Premium")
     .setColor('#edd500')
-    .setDescription(lang.get('premium_not_changed', langchar))
+    .setDescription(`View your premium status at https://www.aunbot.tk/me/premium\nView the docs at https://www.aunbot.tk/docs/premium\n or enable premium for this server at https://www.aunbot.tk/server?id=${message.guild.id}`)
     .setTimestamp()
     .setFooter('Ping: ' + client.ws.ping + ' | '+prefix+command);
-  if (message.author.id != owner_id) {
-    embed1.setTitle(lang.get('premium_error', langchar))
-      .setDescription(lang.get('premium_not_owner', langchar))
-      .setColor('#bd1300');
-      noerror = false;
-  }
-  if(noerror == true){
-    if(settings.getSetting('premium', message.guild.id) === 'true') {
-      settings.setSetting('false', 'premium', message.guild.id);
-      embed1.setDescription(lang.get('premium_changed', langchar) + "disabled")
-    }else{
-      settings.setSetting('true', 'premium', message.guild.id);
-      embed1.setDescription(lang.get('premium_changed', langchar) + "enabled")
-    }
-  }
   message.channel.send(embed1);
+  client.logger.log('info', `${message.guild.name} wants premium`)
 }

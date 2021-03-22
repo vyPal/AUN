@@ -17,16 +17,11 @@ module.exports = (client) => {
       "some minecraft",
       "roblox (I'm a nerd :D)"
   ];
-  console.log(`Logged in as ${client.user.tag}!`);
+  client.logger.log('info', `Logged in as ${client.user.tag}!`);
   setInterval(() => {
       const index = Math.floor(Math.random() * (activities_list.length - 1) + 1);
       client.user.setActivity(activities_list[index]);
   }, 30000);
-  /*
-  client.guilds.cache.forEach(guild => {
-  console.log(`${guild.name} | ${guild.id} | ${guild.memberCount}\n`);
-  })
-  */
   dp.setPrefix(default_prefix);
   settings.setSetting(default_language, 'lang');
   settings.setSetting('false', 'premium');
@@ -39,6 +34,6 @@ module.exports = (client) => {
       shardId: client.shard.ids[0],
       shardCount: client.options.shardCount
     })
-    console.log("Posted stats to top.gg")
+    client.logger.log('info', "Posted stats to top.gg")
   }, 1800000)
 };

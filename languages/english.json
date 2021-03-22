@@ -111,5 +111,8 @@
   "vote_voted": "You have already voted in the last 12 hours! Come back a bit later :)",
 
   "mt_idonthaveperms_title": "Permission error",
-  "mt_idonthaveperms_text": "I am sorry, but I don't have permission to do that"
+  "mt_idonthaveperms_text": "I am sorry, but I don't have permission to do that",
+
+  "bugreport_title_done": "Thanks",
+  "bugreport_description_done": "Your bugreport was sent to our HQ for the author to figure it out"
 }

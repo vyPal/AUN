@@ -3,6 +3,7 @@ const settings = require('discord-server-settings');
 module.exports = async (client, member) => {
   const guild = await member.guild;
   const uname = await member.user.id;
+  const username = await member.user.username;
   const guildname = await member.guild.name;
   const membercount = await member.guild.memberCount;
   if(await settings.getSetting('welcomer_leave', guild.id) == 'true'){
@@ -14,4 +15,5 @@ module.exports = async (client, member) => {
     leavemessage = leavemessage.replace("(members)", `${membercount}`)
     channel.send(leavemessage)
   }
+  client.logger.log('info', `${username} left ${guildname}`);
 }

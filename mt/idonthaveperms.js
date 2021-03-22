@@ -8,12 +8,13 @@ module.exports = (message, client) => {
   if(dp.getPrefix(message.guild.id)){
     prefix = dp.getPrefix(message.guild.id);
   }
+  const noperms = client.emojis.get("822393468625092609");
   var langchar = settings.getSetting('lang', message.guild.id)
   const args = message.content.slice(prefix.length).trim().split(' ');
   const command = args.shift().toLowerCase();
   const embed1 = new Discord.MessageEmbed()
   .setAuthor('AUN', 'https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI')
-  .setTitle(lang.get("mt_idonthaveperms_title", langchar))
+  .setTitle(noperms + lang.get("mt_idonthaveperms_title", langchar))
   .setDescription(lang.get("mt_idonthaveperms_text", langchar))
   .setColor('#ed3f2c')
   .setTimestamp()

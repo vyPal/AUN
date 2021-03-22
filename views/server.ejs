@@ -2,6 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="application-name" content="AUN Web Dashboard">
+    <meta name="author" content="vyPal">
+    <meta name="description" content="The online control panel for AUN">
+    <meta name="keywords" content="website, web, dashboard, dash, aun, bot, online">
+    <meta name="generator" content="ejs">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#00bfff">
+    <meta name="og:site_name" value="AUN Web Dashboard">
+    <meta name="og:title" content="AUN Server manager">
+    <meta name="og:url" content="https://www.aunbot.tk/server">
+    <meta name="og:description" content="Manage this server's settings">
+    <meta name="og:image" content="https://images.discordapp.net/avatars/808613132850561055/7bb914fbe3518b700f98d99b4d572764.png?size=512">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/png" href="https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="image/png" href="https://drive.google.com/uc?export=view&id=129_JKrVi3IJ6spDDciA5Y5sm4pjUF7eI"/>
@@ -25,6 +39,23 @@
         <% guilds.forEach(guild => { %>
           <% if(guild.id == guild_id){ %>
             <% if((guild.permissions & 0x20) == 0x20){ %>
+              <div class="settings-container">
+                <h2>Server premium</h2>
+                <form id="premium-form">
+                  <% if (!serverSettings.getSetting('premium_until', guild.id)) { %>
+                    <h4><%- guild.name %> doesn't have active premium.</h4>
+                  <% } else { %>
+                    <h4><%- guild.name %> has prmium until <%- new Date(serverSettings.getSetting('premium_until', guild.id)).toString() %></h4>
+                  <% } %>
+                  <% if (user.id == "588686932918403072" || user.id == "719452517372526602") { %>
+                    <h4>You have unlimited premium keys</h4>
+                  <% } else { %>
+                    <h4>You have <%- userSettings.getSetting('premium_keys', user.id) || 0 %></h4>
+                  <% } %>
+                  <input type="number" id="premiumbox" value="1" min="0" max="12"/>
+                  <input id="premiumbutton" type="submit" value="Save">
+                </form>
+              </div>
               <div class="settings-container">
                 <h2>Server prefix</h2>
                 <form id="prefix-form">
@@ -74,6 +105,7 @@
               //alerts
               socket.on('broad', function(data) {
                 alert(data);
+                location.reload(true);
               });
               //prefix
               $('#prefix-form').submit(function(e){
@@ -106,6 +138,31 @@
                 var channel = $('#welcomerjoinchannelbox').val();
                 message = '{"cmd": "set","id": "<%- guild_id %>","channel": "' + channel + '", "msg": "' + message + '"}'
                 socket.emit('welcomerjoin', message);
+              });
+              //premium
+              $('#premium-form').submit(function(e){
+                e.preventDefault();
+                var message = $('#premiumbox').val();
+                let send_message = "{}";
+                if (<%- user.id == "588686932918403072" || user.id == "719452517372526602" %> && message != 0) {
+                  <% if(!serverSettings.getSetting('premium_until', guild_id)) { %>
+                    let until = new Date(Date.now());
+                  <% } else { %>
+                    let until = new Date("<%- serverSettings.getSetting('premium_until', guild_id) %>")
+                  <% } %>
+                  until.setMonth(until.getMonth() + 1)
+                  send_message = '{"cmd": "set", "id": "<%- guild_id %>", "premium_until": "' + until.toString() + '"}'
+                }else if(<%- user.id == "588686932918403072" || user.id == "719452517372526602" %> && message == 0) {
+                  send_message = '{"cmd": "remove", "id": "<%- guild_id %>"}'
+                }else if(<%- userSettings.getSetting('premium_keys', user.id) || 0 %> < message) {
+                  send_message = '{"cmd": "remove", "id": "<%- guild_id %>"}'
+                }else{
+                  let until = new Date("<%- serverSettings.getSetting('premium_until', guild_id) || "" %>")
+                  until.setMonth(until.getMonth() + 1)
+                  send_message = '{"cmd": "set", "id": "<%- guild_id %>", "premium_until": "' + until.toString() + '"}'
+                  <% userSettings.setSetting(userSettings.getSetting('premium_keys', user.id) - 1, 'premium_keys', user.id) %>
+                }
+                socket.emit('premium', send_message);
               });
               </script>
             <% } else { %>

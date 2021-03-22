@@ -14,5 +14,5 @@ module.exports = (client, guild) => {
   settings.setSetting(defaultChannel, 'defaultchannel', guild.id);
   settings.setSetting('en', 'lang', guild.id);
   settings.setSetting('false', 'premium', guild.id);
-  console.log('Aun was added to '+guild.name+' with '+guild.memberCount+' members!')
+  client.logger.log('info', 'Aun was added to '+guild.name+' with '+guild.memberCount+' members!')
 }

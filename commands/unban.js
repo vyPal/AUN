@@ -31,9 +31,10 @@ module.exports = (message, client) => {
         embed1.setDescription(lang.get('unban_unabnned_part1', langchar)+member.user.tag+lang.get('unban_unabnned_part2', langchar))
     }
     message.channel.send(embed1)
+    client.logger.log('info', `Unabnned ${member} in ${message.guild.name}`)
   try{
       return member.unban()
-  }catch{
-      return
+  }catch (e){
+      return client.logger.log('error', e)
     }
 }

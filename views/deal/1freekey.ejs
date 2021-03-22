@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#00bfff">
     <meta name="og:site_name" value="AUN Web Dashboard">
-    <meta name="og:title" content="AUN Deals">
+    <meta name="og:title" content="1 FREE KEY">
     <meta name="og:url" content="https://www.aunbot.tk/me/deals">
     <meta name="og:description" content="View current and upcoming special deals">
     <meta name="og:image" content="https://images.discordapp.net/avatars/808613132850561055/7bb914fbe3518b700f98d99b4d572764.png?size=512">
@@ -23,16 +23,34 @@
     <title><%- pageTitle %></title>
 
     <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
     <%- include('partials/navbar.ejs') %>
 
     <div class="page-content">
       <% if(user) { %>
-        <h1>Deals for <%- user.tag %></h1>
-        <p>Hey there! Here you can view all the active special deals, like free premium keys or other! Make sure to visit often!</p>
-        <!--<h3><u>There are no open special offers</u></h3>-->
-        <a href="/deal/1freekey"><h3>Deal: 1 free key</h3></a>
+        <h1>The 1 FREE KEY special offer</h1>
+        <p>Hello, and welcome to the first AUN deal! Want to get a free premium key? No problem! This is where you can get it! Click on the button below! (You can click only once)
+        <form id="form">
+          <input id="button" type="submit" <% if (userSettings.getSetting('1freekey', user.id) == "claimed") { %> disabled value="You already claimed this" <% } else { %> value="Get a key!" <% } %> >
+        </form>
+        <script>
+          var socket = io.connect('https://www.aunbot.tk');
+          socket.on('connect', function(data) {
+            socket.emit('join', 'Connection from <%- user.tag %> for <%- pageTitle %>');
+          });
+          socket.on('broad', function(data) {
+            alert(data);
+            location.reload(true);
+          });
+          $('#form').submit(function(e){
+            e.preventDefault();
+            var message = '{"cmd": "set","id": "<%- user.id %>"}'
+            socket.emit('1freekey', message);
+          });
+        </script>
       <% } %>
     </div>
 </body>

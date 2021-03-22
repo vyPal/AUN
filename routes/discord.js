@@ -5,6 +5,8 @@ const clientSecret = process.env.CLIENT_SECRET;
 const fetch = require('node-fetch');
 const FormData = require('form-data');
 
+let return_url = "";
+
 const forceAuth = (req, res, next) => {
     if (!req.session.user) return res.redirect('/authorize')
     else return next();
@@ -12,6 +14,7 @@ const forceAuth = (req, res, next) => {
 
 router.get('/', (req, res) => {
     if (req.session.user) return res.redirect('/');
+    return_url = req.query.aun_site || "";
 
     const authorizeUrl = `https://discordapp.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=${scopes.join('%20')}`;
     res.redirect(authorizeUrl);
@@ -59,7 +62,7 @@ router.get('/callback', (req, res) => {
           .then(res3 => res3.json())
           .then(guildResponse => {
             req.session.guilds = guildResponse;
-            res.redirect('/');
+            res.redirect('/' + return_url);
           });
         })
     });
@@ -67,6 +70,7 @@ router.get('/callback', (req, res) => {
 
 router.get('/logout', forceAuth, (req, res) => {
     req.session.destroy();
+    res.redirect('/');
 });
 
 module.exports = router;

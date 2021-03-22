@@ -130,4 +130,5 @@ module.exports = async (message, client) => {
           })
       });
   });
+  client.logger.log('info', `Welcomer setup in ${message.guild.name}`)
 }

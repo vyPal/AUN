@@ -68,6 +68,31 @@ io.on('connection', function(client) {
             serverSettings.setSetting(json.msg, 'welcomer_join_msg', json.id);
           }
         });
+        //premium
+        client.on('premium', function(data) {
+          var json = JSON.parse(data);
+          console.log(json);
+          //set
+          if(json.cmd == "set") {
+            serverSettings.setSetting(json.premium_until, 'premium_until', json.id);
+            client.emit('broad', 'Premium extended to ' + json.premium_until);
+          }
+          //remove
+          if(json.cmd == "remove") {
+            serverSettings.remSetting('premium_until', json.id);
+            client.emit('broad', 'Premium disabled');
+          }
+        });
+        //1freekey
+        client.on('1freekey', function(data) {
+          var json = JSON.parse(data);
+          client.emit('broad', 'You claimed your key! Come back later');
+          //set
+          if(json.cmd == "set") {
+            userSettings.setSetting("claimed", '1freekey', json.id);
+            userSettings.setSetting((userSettings.getSetting('premium_keys', json.id) || 0) + 1, 'premium_keys', json.id)
+          }
+        });
     });
 });
 

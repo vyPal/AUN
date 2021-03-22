@@ -15,6 +15,8 @@ module.exports = (message, client) => {
   const command = args.shift().toLowerCase();
   var guildList = client.guilds.cache.array();
   var msgssent = 0;
+  client.logger.log('info', `BROADCAST`)
+  const announcement = client.emojis.get("822396106503356466");
   try {
     guildList.forEach(guild => {
       let defaultChannel = "";
@@ -29,7 +31,7 @@ module.exports = (message, client) => {
           }
         });
       }
-      defaultChannel.send(args.join(' '));
+      defaultChannel.send(announcement + args.join(' '));
       msgssent += 1;
     });
   } catch (err) {

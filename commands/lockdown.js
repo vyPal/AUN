@@ -56,4 +56,5 @@ module.exports = async (message, client) => {
   .setFooter('Ping: ' + client.ws.ping + ' | '+prefix+command);
     embed1.setDescription('Lockdown is now '+lockdown);
     message.channel.send(embed1);
+    client.logger.log('info', `Lockdown in ${message.guild.name}`)
 }

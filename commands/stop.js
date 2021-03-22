@@ -11,4 +11,5 @@ module.exports = (message, client) => {
   const command = args.shift().toLowerCase();
   const query = args.join(' ');
   client.distube.stop(message, query);
+  client.logger.log('info', `Stopped ${message.guild.name}`)
 }

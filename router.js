@@ -19,4 +19,7 @@ module.exports = (app) => {
 
     // '/docs'
     app.use('/docs', require('./routes/index'));
+
+    // '/deal'
+    app.use('/deal', require('./routes/index'))
 }

@@ -156,6 +156,83 @@ p, a {
   transition-duration: 0.4s;
 }
 
+#button {
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #069701;
+  border-radius: 4px;
+  background-color: #07d300;
+  resize: none;
+  transition-duration: 0.4s;
+}
+
+#button:hover {
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #07d300;
+  border-radius: 4px;
+  background-color: #069701;
+  resize: none;
+  transition-duration: 0.4s;
+}
+
+#button:disabled {
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #970101;
+  border-radius: 4px;
+  background-color: #d30000;
+  resize: none;
+  transition-duration: 0.4s;
+  
+}
+
+#button:disabled:hover {
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #d30000;
+  border-radius: 4px;
+  background-color: #970101;
+  resize: none;
+  transition-duration: 0.4s;
+}
+
+#premiumbox {
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+#premiumbutton {
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #069701;
+  border-radius: 4px;
+  background-color: #07d300;
+  resize: none;
+  transition-duration: 0.4s;
+}
+
+#premiumbutton:hover {
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #07d300;
+  border-radius: 4px;
+  background-color: #069701;
+  resize: none;
+  transition-duration: 0.4s;
+}
+
 #languagebox {
   color: rgb(0, 0, 0);
   padding: 12px 20px;

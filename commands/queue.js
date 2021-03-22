@@ -14,5 +14,5 @@ module.exports = (message, client) => {
     message.channel.send('Current queue:\n' + queue.songs.map((song, id) =>
             `**${id + 1}**. ${song.name} - \`${song.formattedDuration}\``
         ).slice(0, 10).join("\n"));
-  
+  client.logger.log('info', `Showed queue in ${message.guild.name}`)
 }
