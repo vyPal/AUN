@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const winston = require('winston');
-const client = new Discord.Client({ ws: { intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MEMBERS', 'GUILD_MESSAGE_REACTIONS', 'GUILD_VOICE_STATES', 'DIRECT_MESSAGES', 'GUILD_INVITES', 'GUILD_EMOJIS'] } });
+const client = new Discord.Client({ ws: { intents: ['GUILDS', 'GUILD_MEMBERS', 'GUILD_BANS', 'GUILD_EMOJIS', 'GUILD_INTEGRATIONS', 'GUILD_WEBHOOKS', 'GUILD_INVITES', 'GUILD_VOICE_STATES', 'GUILD_PRESENCES', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'GUILD_MESSAGE_TYPING', 'DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS', 'DIRECT_MESSAGE_TYPING'] } });
 const fs = require("fs");
 const DisTube = require('distube');
 const Topgg = require('@top-gg/sdk');
@@ -27,6 +27,14 @@ fs.readdir("./events/", (err, files) => {
     const eventHandler = require(`./events/${file}`);
     const eventName = file.split(".")[0];
     client.on(eventName, (...args) => eventHandler(client, ...args));
+  });
+});
+
+fs.readdir("./ws-events/", (err, files) => {
+  files.forEach((file) => {
+    const eventHandler = require(`./ws-events/${file}`);
+    const eventName = file.split(".")[0];
+    client.ws.on(eventName, (...args) => eventHandler(client, ...args));
   });
 });
 

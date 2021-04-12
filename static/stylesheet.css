@@ -370,15 +370,25 @@ code {
   background: rgba(0,0,0,0.25);
   text-align: center;
   width: 200px;
-  margin: 20px;
   padding: 15px;
   padding-top: 20px;
   border-radius: 15px;
   transition: .25s ease;
-  margin-top: 50px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  margin: 25px;
+  margin-top: 85px;
 }
 
 .profile-card .icon {
   border-radius: 90px;
   display: inline;
+}
+
+.discord-widget {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 25px;
 }

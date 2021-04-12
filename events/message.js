@@ -29,11 +29,16 @@ const welcomer = require("../commands/welcomer");
 const bugreport = require("../commands/bugreport");
 const clear = require("../commands/clear");
 const eval_cmd = require("../commands/eval");
+const ticket = require("../commands/ticket");
+const close = require("../commands/close");
+const snipe = require("../commands/snipe");
 
-module.exports = (client, message) => {
-  let prefix = dp.getPrefix();
-  if(dp.getPrefix(message.guild.id)){
-    prefix = dp.getPrefix(message.guild.id);
+module.exports = async (client, message) => {
+  let prefix = await dp.getPrefix();
+  if(message.guild) {
+    if(await dp.getPrefix(message.guild.id)){
+      prefix = await dp.getPrefix(message.guild.id);
+    }
   }
   if (message.author.bot) {return;}
   if (/<@!808613132850561055>|<@808613132850561055>/.test(message.content)) {return info (message, client);}
@@ -97,5 +102,11 @@ module.exports = (client, message) => {
     clear(message, client);
   }else if(message.content.startsWith(prefix+"eval")){
     eval_cmd(message, client);
+  }else if(message.content.startsWith(prefix+"ticket")){
+    ticket(message, client);
+  }else if(message.content.startsWith(prefix+"close")){
+    close(message, client);
+  }else if(message.content.startsWith(prefix+"snipe")){
+    snipe(message, client);
   }
 }
