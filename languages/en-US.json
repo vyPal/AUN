@@ -1,0 +1,91 @@
+{
+    "ban": {
+        "title": "User was banned",
+        "description": "User %usertag% was banned from this server.",
+        "error": {
+            "title": "Could not ban user",
+            "description": "I am sorry but I am missing the `BAN_MEMBERS` permission, or the user has administrator permissions."
+        }
+    },
+
+    "unban": {
+        "title": "User was unbanned",
+        "description": "User %usertag% was unbanned on this server.",
+        "error": {
+            "title": "Could not unban user",
+            "description": "I am sorry but I am missing the `MANAGE_GUILD` permission, or the user isn't banned."
+        }
+    },
+
+    "kick": {
+        "title": "User was kicked",
+        "description": "User %usertag% was kicked from this server.",
+        "error": {
+            "title": "Could not kick user",
+            "description": "I am sorry but I am missing the `KICK_MEMBERS` permission, or the user has administrator permissions."
+        }
+    },
+
+    "mute": {
+        "title": "User was muted",
+        "description": "User %usertag% was muted until %duration%.",
+        "error": {
+            "title": "Could not mute user",
+            "description": "I am sorry but I am missing the `MANAGE_GUILD` permission, or the user is already muted."
+        }
+    },
+
+    "unmute": {
+        "title": "User was unmuted",
+        "description": "User %usertag% has been unmuted.",
+        "error": {
+            "title": "Could not unmute user",
+            "description": "I am sorry but I am missing the `MANAGE_GUILD` permission, or the user is not muted."
+        }
+    },
+
+    "prefix": {
+        "title": "Prefix",
+        "prefix_is": "The command prefix is `%prefix%`.",
+        "no_prefix": "There is no command prefix.",
+        "command_usage": "To run commands, use %usage%.",
+        "reset": "Reset the command prefix to the default (currently %current%).",
+        "reset_no_prefix": "no prefix",
+        "set": "Set the command prefix to `%prefix%`.",
+        "removed": "Removed the command prefix entirely.",
+        "error": {
+            "title": "Prefix error",
+            "only_admin": "Only administrators may change the command prefix.",
+            "only_owner": "Only the bot owner(s) may change the global command prefix."
+        }
+    },
+
+    "info": {
+        "bot": {
+            "title": "AUN Info",
+            "description": "This is information about the bot AUN.",
+            "fields": [
+                {
+                    "name": "Basic info",
+                    "value": "Created by: **vyPal#6620**\nCreated on: **Feb. 9. 2021**\nProgramming language: **JavaScript**\nLibrary: **discord.js**\nTools: **Repl.it**, **VisualStudio Code**, **GitHub**",
+                    "inline": true
+                },
+                {
+                    "name": "Bot stats",
+                    "value": "AUN currently is on **%servers%** server,\nand is serving **%users%** users at once.\nAUN is currently running on **%shards%** shards.\nThis is shard number **%shardid%**\nIt has been online for **%ms%**",
+                    "inline": true
+                },
+                {
+                    "name": "Advanced info",
+                    "value": "This is AUN version **%version%**\nHosted on a **%host%** server\nAll languages used: **JavaScript**, **EJS**, **SQL**, **HTML**, **CSS**, **JSON**, **SQLite**, **DotEnv**",
+                    "inline": true
+                },
+                {
+                    "name": "AUN Links",
+                    "value": "AUN's website: https://www.aunbot.tk \n AUN's docs: https://www.aunbot.tk/docs \n AUN's top.gg page: https://top.gg/bot/808613132850561055 \n AUN's status page: https://www.aunbot.tk/status \n AUN invite link: https://discord.com/oauth2/authorize?client_id=808613132850561055&permissions=8&scope=bot \n AUN support server: https://discord.gg/wq5JprbjdJ",
+                    "inline": true
+                }
+            ]
+        }
+    }
+}

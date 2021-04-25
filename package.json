@@ -1,0 +1,33 @@
+{
+  "name": "aun-beta",
+  "version": "1.0.0-BETA",
+  "description": "The beta version of the AUN discord bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "nodemon ."
+  },
+  "author": "vyPal",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "@discordjs/opus": "^0.4.0",
+    "@mapbox/node-pre-gyp": "^1.0.4",
+    "@top-gg/sdk": "^3.1.1",
+    "common-tags": "^1.8.0",
+    "discord-music-player": "^7.1.4",
+    "discord.js": "^12.5.3",
+    "discord.js-commando": "github:discordjs/Commando",
+    "dotenv": "^8.2.0",
+    "ffmpeg": "0.0.4",
+    "ffmpeg-static": "^4.2.7",
+    "fluent-ffmpeg": "^2.1.2",
+    "fs": "*",
+    "ms": "^2.1.3",
+    "opusscript": "^0.0.8",
+    "path": "^0.12.7",
+    "sqlite": "^4.0.21",
+    "sqlite3": "^5.0.2",
+    "youtube-dl-exec": "^1.2.1",
+    "ytdl-core": "^4.5.0"
+  }
+}
