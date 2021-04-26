@@ -11,8 +11,6 @@ module.exports = class PlayCommand extends Command {
 			description: 'Plays a song in the voice channel that you are in.',
             examples: ['play lost in sound', 'p lost in sound'],
             guildOnly: true,
-            clientPermissions: ['SEND_MESSAGES'],
-            userPermissions: [],
             args: [
                 {
                     key: 'query',
@@ -25,9 +23,11 @@ module.exports = class PlayCommand extends Command {
 		});
 	}
 
-    run (message, {query}) {
+    async run (message, {query}) {
         const lcid = this.client.provider.get(message.guild, 'lcid', 'en-US');
         const lang = require(`../../languages/${lcid}.json`);
-        this.client.player.play(message, {search: query});
+        await message.member.voice.channel.join();
+        await this.client.player.play(message, message.content.slice(5).trim());
+        console.log('Playing song')
     }
 }

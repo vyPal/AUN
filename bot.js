@@ -7,7 +7,7 @@ require('dotenv').config();
 const oneLine = require('common-tags').oneLine;
 const fs = require('fs');
 const Topgg = require('@top-gg/sdk');
-const { Player } = require("discord-music-player");
+const { Player } = require("discord-player");
 
 const client = new CommandoClient({
 	commandPrefix: '.',
@@ -27,16 +27,12 @@ fs.readdir("./events/", (err, files) => {
 const api = new Topgg.Api(process.env.TOP_GG_TOKEN);
 client.topggapi = api;
 
-const player = new Player(client, {
-    leaveOnEmpty: true,
-	leaveOnStop: true,
-	deafenOnJoin: true,
-	timeout: 0,
-    volume: 100,
-    quality: 'high',
-});
-
+const player = new Player(client);
 client.player = player;
+
+player.on("trackStart", (message, track) => {
+	message.channel.send(`Now playing ${track.title}...`);
+  });
 
 client
 	.on('error', console.error)
