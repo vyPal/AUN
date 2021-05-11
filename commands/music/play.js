@@ -26,8 +26,7 @@ module.exports = class PlayCommand extends Command {
     async run (message, {query}) {
         const lcid = this.client.provider.get(message.guild, 'lcid', 'en-US');
         const lang = require(`../../languages/${lcid}.json`);
-        await message.member.voice.channel.join();
-        await this.client.player.play(message, message.content.slice(5).trim());
+        await this.client.distube.play(message, message.content.slice(5).trim());
         console.log('Playing song')
     }
 }
