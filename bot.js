@@ -38,10 +38,6 @@ fs.readdir("./music-events/", (err, files) => {
 	});
 });
 
-player.on("trackStart", (message, track) => {
-	message.channel.send(`Now playing ${track.title}...`);
-});
-
 client
 	.on('error', console.error)
 	.on('warn', console.warn)
@@ -89,7 +85,7 @@ client.registry
 	.registerDefaultTypes()
     .registerDefaultGroups()
     .registerDefaultCommands({
-		prefix: false,
+		prefix: false
 	})
 	.registerCommandsIn(path.join(__dirname, 'commands'));
 

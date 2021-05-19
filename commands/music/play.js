@@ -27,6 +27,5 @@ module.exports = class PlayCommand extends Command {
         const lcid = this.client.provider.get(message.guild, 'lcid', 'en-US');
         const lang = require(`../../languages/${lcid}.json`);
         await this.client.distube.play(message, message.content.slice(5).trim());
-        console.log('Playing song')
     }
 }

@@ -86,6 +86,43 @@
                     "inline": true
                 }
             ]
+        },
+        "server": {
+            "title": "%servername% Info",
+            "description": "This is information about the '%servername%' server.",
+            "fields": [
+                {
+                    "name": "Basic info",
+                    "value": "Name: **%servername%**\nID: **%serverid%**\nDescription: **%desc%**\nOwner: **%ownertag%**\nRegion: **%region%**\nCreated: **%createdat%**\nJoined: **%joinedat%**",
+                    "inline": true
+                },
+                {
+                    "name": "Server stats",
+                    "value": "Members: **%members%**\nRoles:**%roles%**\nEmojis: **%emojis%**\nBoost: **%tier%**\nChannels: **%channels%**",
+                    "inline": true
+                }
+            ]
         }
+    },
+    "skip": {
+        "title": "Skipped song",
+        "description": "Skipped to the next song in the queue."
+    },
+    "stop": {
+        "title": "Stopped song",
+        "description": "Stopped the music, disconnected the bot, and cleared the queue :D"
+    },
+    "loop": {
+        "title": "Set the loop mode",
+        "description": "The loop mode was set to %mode%"
+    },
+    "volume": {
+        "title": "Set the volume",
+        "description": "The playback volume was set to %volume%%"
+    },
+    "queue": {
+        "title": "Song queue",
+        "description": "The current queue: \n%songs%",
+        "songformat": "**%id%.** %name% - `%duration%`"
     }
 }
